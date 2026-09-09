@@ -26,31 +26,6 @@
             font-size: clamp(28px, 5vw, 42px);
         }
 
-        <section class="tema">
-    <h2>1. Producción electrónica</h2>
-
-    <p>
-        La producción electrónica es el proceso de diseñar, fabricar,
-        ensamblar y verificar dispositivos y circuitos electrónicos.
-        Su objetivo es transformar un diseño en un producto funcional
-        que cumpla con los requisitos de calidad y funcionamiento.
-    </p>
-
-    <p>
-        En una placa de circuito impreso (PCB), este proceso incluye
-        elaborar el diagrama del circuito, seleccionar los componentes,
-        diseñar las pistas y fabricar la placa. Después, se colocan y
-        sueldan los componentes y se realizan pruebas para comprobar
-        que las conexiones y el circuito funcionen correctamente.
-    </p>
-
-    <p>
-        A lo largo de esta materia documentaremos la creación de nuestra
-        placa, desde el diseño inicial hasta su ensamblaje y pruebas,
-        mostrando los avances y las dificultades de cada etapa.
-    </p>
-</section>
-
         main {
             max-width: 800px;
             margin: 40px auto;
@@ -92,13 +67,32 @@
             font-weight: bold;
             line-height: 1.5;
         }
+
+        .tema {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid #142b45;
+            text-align: left;
+        }
+
+        .tema h2 {
+            color: #142b45;
+            font-size: 26px;
+        }
+
+        .tema p {
+            line-height: 1.8;
+        }
     </style>
 </head>
 
 <body>
     <header>
         <h1>Producción Electrónica: avances de la materia</h1>
-        <p>Aquí vamos a reportar paso a paso lo que es nuestra placa, cómo la creamos y su diseño.</p>
+        <p>
+            Aquí vamos a reportar paso a paso lo que es nuestra placa,
+            cómo la creamos y su diseño.
+        </p>
     </header>
 
     <main>
@@ -110,7 +104,9 @@
                     src="jose.jpg.jpeg"
                     alt="José Manuel Góngora Compeán"
                 >
-                <figcaption>José Manuel Góngora Compeán</figcaption>
+                <figcaption>
+                    José Manuel Góngora Compeán
+                </figcaption>
             </figure>
 
             <figure class="integrante">
@@ -121,6 +117,34 @@
                 <figcaption>Rodrigo Cermeño</figcaption>
             </figure>
         </div>
+
+        <section class="tema">
+            <h2>1. Producción electrónica</h2>
+
+            <p>
+                La producción electrónica es el proceso de diseñar,
+                fabricar, ensamblar y verificar dispositivos y circuitos
+                electrónicos. Su objetivo es transformar un diseño en
+                un producto funcional que cumpla con los requisitos de
+                calidad y funcionamiento.
+            </p>
+
+            <p>
+                En una placa de circuito impreso (PCB), este proceso
+                incluye elaborar el diagrama del circuito, seleccionar
+                los componentes, diseñar las pistas y fabricar la placa.
+                Después, se colocan y sueldan los componentes y se
+                realizan pruebas para comprobar que las conexiones y
+                el circuito funcionen correctamente.
+            </p>
+
+            <p>
+                A lo largo de esta materia documentaremos la creación
+                de nuestra placa, desde el diseño inicial hasta su
+                ensamblaje y pruebas, mostrando los avances y las
+                dificultades de cada etapa.
+            </p>
+        </section>
     </main>
 </body>
 </html>
