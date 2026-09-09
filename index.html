@@ -33,18 +33,39 @@
             text-align: center;
         }
 
-        .foto-equipo {
-            display: block;
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            margin: 24px auto;
-            border-radius: 12px;
-        }
-
         p {
             font-size: 18px;
             line-height: 1.6;
+        }
+
+        .integrantes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .integrante {
+            margin: 0;
+            width: 280px;
+            max-width: 100%;
+        }
+
+        .integrante img {
+            display: block;
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+        }
+
+        .integrante figcaption {
+            margin-top: 16px;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -58,15 +79,23 @@
     <main>
         <h2>Integrantes del equipo</h2>
 
-        <!-- Cambia equipo.jpg por el nombre de tu fotografía -->
-        <img
-            class="foto-equipo"
-            src="equipo.jpg"
-            alt="Fotografía de los integrantes del equipo"
-        >
+        <div class="integrantes">
+            <figure class="integrante">
+                <img
+                    src="jose.jpeg"
+                    alt="José Manuel Góngora Compeán"
+                >
+                <figcaption>José Manuel Góngora Compeán</figcaption>
+            </figure>
 
-        <!-- Aquí escribe sus nombres -->
-        <p>José Manuel Góngora Compeán/Rodrigo Cermeño</p>
+            <figure class="integrante">
+                <img
+                    src="rodrigo.jpeg"
+                    alt="Rodrigo Cermeño"
+                >
+                <figcaption>Rodrigo Cermeño</figcaption>
+            </figure>
+        </div>
     </main>
 </body>
 </html>
