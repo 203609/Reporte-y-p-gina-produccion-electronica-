@@ -7,6 +7,7 @@
     <title>Producción Electrónica</title>
 
     <style>
+        
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -83,7 +84,28 @@
         .tema p {
             line-height: 1.8;
         }
+        .imagen-avance {
+    max-width: 650px;
+    margin: 28px auto;
+    text-align: center;
+}
+
+.imagen-avance img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.imagen-avance figcaption {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #465568;
+}
     </style>
+
+    
 </head>
 
 <body>
@@ -145,7 +167,7 @@
                 dificultades de cada etapa.
             </p>
         </section>
-        <section class="tema">
+       <section class="tema">
     <h2>2. Programa KiCad</h2>
 
     <p>
@@ -155,6 +177,15 @@
         organizando los componentes y trazando las pistas que conectan
         cada uno de ellos.
     </p>
+
+    <figure class="imagen-avance">
+        <img
+            src="huella.jpeg"
+            alt="Huella del componente en KiCad"
+            loading="lazy"
+        >
+        <figcaption>Huella del componente en KiCad.</figcaption>
+    </figure>
 
     <p>
         Durante el diseño podemos definir las dimensiones de la placa,
@@ -175,6 +206,15 @@
         la soldadura.
     </p>
 
+    <figure class="imagen-avance">
+        <img
+            src="circuito.jpeg"
+            alt="Diseño del circuito en KiCad"
+            loading="lazy"
+        >
+        <figcaption>Diseño del circuito en KiCad.</figcaption>
+    </figure>
+
     <p>
         KiCad también cuenta con herramientas de revisión que ayudan
         a detectar posibles errores de conexión y separaciones
@@ -190,6 +230,7 @@
         que el diseño sea compatible con la herramienta de corte
         y con las limitaciones del equipo.
     </p>
+</section>
 </section>
     </main>
 </body>
