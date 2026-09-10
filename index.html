@@ -141,133 +141,112 @@
         </div>
 
         <section class="tema">
-            <h2>1. Producción electrónica</h2>
-
-            <p>
-                La producción electrónica es el proceso de diseñar,
-                fabricar, ensamblar y verificar dispositivos y circuitos
-                electrónicos. Su objetivo es transformar un diseño en
-                un producto funcional que cumpla con los requisitos de
-                calidad y funcionamiento.
-            </p>
-
-            <p>
-                En una placa de circuito impreso (PCB), este proceso
-                incluye elaborar el diagrama del circuito, seleccionar
-                los componentes, diseñar las pistas y fabricar la placa.
-                Después, se colocan y sueldan los componentes y se
-                realizan pruebas para comprobar que las conexiones y
-                el circuito funcionen correctamente.
-            </p>
-
-            <p>
-                A lo largo de esta materia documentaremos la creación
-                de nuestra placa, desde el diseño inicial hasta su
-                ensamblaje y pruebas, mostrando los avances y las
-                dificultades de cada etapa.
-            </p>
-        </section>
-       <section class="tema">
-    <h2>2. Elaboración del esquemático</h2>
-
-    <p>
-        Iniciamos armando el circuito en el editor de esquemáticos
-        de KiCad. En esta etapa colocamos los símbolos de los
-        componentes que vamos a utilizar, entre ellos resistencias
-        e interruptores (switches), y trazamos las conexiones
-        eléctricas entre ellos.
-    </p>
-
-    <p>
-        El esquemático es importante porque representa cómo deben
-        conectarse los componentes y sirve como guía para diseñar
-        nuestra placa de circuito impreso. Por eso lo elaboramos
-        primero: nos permite organizar el circuito y revisar sus
-        conexiones antes de pasar al diseño físico de la placa.
-    </p>
-
-    <figure class="imagen-avance">
-        <img
-            src="esquematico.jpeg"
-            alt="Esquemático de nuestro circuito"
-            loading="lazy"
-        >
-        <figcaption>
-            Esquemático del circuito que utilizaremos como guía
-            para diseñar la placa.
-        </figcaption>
-    </figure>
-
-    <p>
-        En esta fase nos concentramos en las conexiones eléctricas.
-        La posición definitiva de los componentes y el recorrido
-        de las pistas se definirán posteriormente en el editor
-        de PCB, tomando como referencia este esquemático.
-    </p>
-</section>
-
-<section class="tema">
-    <h2>3. Programa KiCad</h2>
+    <h2>2. Programa KiCad</h2>
 
     <p>
         El programa que estamos utilizando para desarrollar nuestra
-        placa de circuito impreso es KiCad. Este software nos permite
-        elaborar el diagrama esquemático del circuito y diseñar la PCB,
-        organizando los componentes y trazando las pistas que conectan
-        cada uno de ellos.
+        placa de circuito impreso es KiCad. Con este software podemos
+        elaborar el diagrama esquemático, seleccionar las huellas de
+        los componentes y diseñar la distribución de nuestra placa.
+    </p>
+
+    <p>
+        Para comenzar, descargamos e instalamos KiCad en nuestro
+        equipo. Este es el primer paso para contar con las herramientas
+        necesarias y empezar a trabajar en el proyecto.
     </p>
 
     <figure class="imagen-avance">
         <img
-            src="huella.jpeg"
-            alt="Huella del componente en KiCad"
+            src="inicio%20de%20kicad.jpeg"
+            alt="Descarga del programa KiCad"
             loading="lazy"
         >
-        <figcaption>Huella del componente en KiCad.</figcaption>
+        <figcaption>Descarga del programa KiCad.</figcaption>
     </figure>
 
     <p>
-        KiCad reúne las herramientas que necesitamos para trabajar
-        en las distintas etapas del proyecto. Desde su administrador
-        podemos acceder al editor de esquemáticos y al editor de PCB,
-        manteniendo organizados los archivos de nuestro circuito.
+        Desde la interfaz de KiCad podemos crear y organizar nuestro
+        proyecto, abrir el editor de esquemáticos y acceder al editor
+        de placas de circuito impreso. Estas herramientas nos permiten
+        pasar de las conexiones eléctricas del circuito a su
+        distribución física en la placa.
     </p>
 
     <figure class="imagen-avance">
         <img
             src="KICAD.jpeg"
-            alt="Captura del programa KiCad"
+            alt="Interfaz del programa KiCad"
             loading="lazy"
         >
-        <figcaption>
-            Programa KiCad utilizado para desarrollar el proyecto.
-        </figcaption>
-    </figure>
-
-    <figure class="imagen-avance">
-        <img
-            src="inicio%20de%20kicad.jpeg"
-            alt="Inicio del trabajo en KiCad"
-            loading="lazy"
-        >
-        <figcaption>Inicio del trabajo en KiCad.</figcaption>
+        <figcaption>Interfaz del programa KiCad.</figcaption>
     </figure>
 
     <p>
         Durante el diseño podemos definir las dimensiones de la placa,
         el ancho de las pistas, la separación entre conexiones y el
-        tamaño de las perforaciones. Estos parámetros deben ajustarse
-        a las necesidades del circuito y a las capacidades de la
-        máquina CNC ________, con la cual vamos a trabajar para
-        fabricar nuestra placa.
+        tamaño de las perforaciones. Ajustaremos estos parámetros
+        conforme a las capacidades de la máquina CNC ________,
+        ya que con este equipo vamos a fabricar nuestra placa.
     </p>
 
     <p>
-        Primero realizamos las conexiones en el diagrama esquemático
-        y asignamos a cada componente su huella, que representa el
-        espacio y los puntos de conexión que ocupará físicamente en
-        la placa. Después, acomodamos los componentes y diseñamos
-        el recorrido de las pistas, procurando mantener una
+        KiCad también cuenta con herramientas de revisión que ayudan
+        a identificar posibles errores de conexión y verificar las
+        reglas de diseño. Además, permite visualizar la placa en 3D
+        para revisar la distribución de los componentes antes de
+        pasar a la fabricación.
+    </p>
+</section>
+
+<section class="tema">
+    <h2>3. Elaboración del esquemático</h2>
+
+    <p>
+        Iniciamos armando el circuito en el editor de esquemáticos
+        de KiCad. Colocamos algunas resistencias e interruptores
+        (switches), representados mediante sus símbolos eléctricos,
+        y realizamos las conexiones necesarias entre los componentes
+        para armar nuestro circuito.
+    </p>
+
+    <figure class="imagen-avance">
+        <img
+            src="esquematico.jpeg"
+            alt="Esquemático de nuestro circuito en KiCad"
+            loading="lazy"
+        >
+        <figcaption>Elaboración del esquemático del circuito.</figcaption>
+    </figure>
+
+    <p>
+        El esquemático es importante porque sirve como guía para
+        diseñar la placa de circuito impreso. Por esta razón lo
+        elaboramos primero: nos permite identificar los componentes,
+        entender cómo se conectan y revisar las conexiones antes
+        de trabajar en la distribución física de la placa.
+    </p>
+
+    <p>
+        Después asignamos a cada componente su huella, que representa
+        el espacio y los puntos de conexión que ocupará en la PCB.
+        La huella debe coincidir con las dimensiones y la posición
+        de las terminales del componente que utilizaremos.
+    </p>
+
+    <figure class="imagen-avance">
+        <img
+            src="huella.jpeg"
+            alt="Huella de un componente en KiCad"
+            loading="lazy"
+        >
+        <figcaption>Asignación de la huella de un componente.</figcaption>
+    </figure>
+
+    <p>
+        Una vez definidos el esquemático y las huellas, podemos
+        continuar en el editor de PCB. Ahí acomodamos los componentes
+        y trazamos las pistas que los conectan, buscando una
         distribución ordenada que facilite la fabricación y
         la soldadura.
     </p>
@@ -278,49 +257,17 @@
             alt="Diseño del circuito en KiCad"
             loading="lazy"
         >
-        <figcaption>Diseño del circuito en KiCad.</figcaption>
+        <figcaption>Avance del diseño del circuito en KiCad.</figcaption>
     </figure>
 
     <p>
-        KiCad también cuenta con herramientas de revisión que ayudan
-        a detectar posibles errores de conexión y separaciones
-        insuficientes entre elementos. Además, permite visualizar
-        el diseño en 3D para revisar la distribución de los
-        componentes antes de fabricar la placa.
-    </p>
-
-    <p>
-        Una vez revisado el diseño, exportaremos los archivos
-        necesarios para preparar el trabajo de mecanizado en el
-        software correspondiente a la CNC. En esta etapa verificaremos
-        que el diseño sea compatible con la herramienta de corte
-        y con las limitaciones del equipo.
+        Antes de fabricar la placa, revisaremos que las conexiones
+        correspondan al esquemático y que el diseño cumpla con los
+        parámetros establecidos para la CNC. Finalmente, exportaremos
+        los archivos necesarios para preparar el mecanizado en
+        el software correspondiente.
     </p>
 </section>
-    <figure class="imagen-avance">
-        <img
-            src="circuito.jpeg"
-            alt="Diseño del circuito en KiCad"
-            loading="lazy"
-        >
-        <figcaption>Diseño del circuito en KiCad.</figcaption>
-    </figure>
-
-    <p>
-        KiCad también cuenta con herramientas de revisión que ayudan
-        a detectar posibles errores de conexión y separaciones
-        insuficientes entre elementos. Además, permite visualizar
-        el diseño en 3D para revisar la distribución de los
-        componentes antes de fabricar la placa.
-    </p>
-
-    <p>
-        Una vez revisado el diseño, exportaremos los archivos
-        necesarios para preparar el trabajo de mecanizado en el
-        software correspondiente a la CNC. En esta etapa verificaremos
-        que el diseño sea compatible con la herramienta de corte
-        y con las limitaciones del equipo.
-    </p>
 </section>
 </section>
     </main>
