@@ -336,6 +336,116 @@
 .conexiones-cierre p {
     margin-bottom: 0;
 }
+.zonas-cobre {
+    border-top: 4px solid #a84b1b;
+}
+
+.zonas-titulo {
+    padding: 0;
+    background: transparent;
+    color: #182536;
+    text-align: left;
+}
+
+.zonas-titulo > span {
+    color: #873b16;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+}
+
+.zonas-titulo h2 {
+    margin-top: 10px;
+}
+
+.zonas-contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+    margin: 30px 0;
+}
+
+.zonas-cobre h3 {
+    color: #873b16;
+    font-size: 22px;
+}
+
+.zonas-texto h3 {
+    margin-top: 0;
+}
+
+.zonas-dato {
+    display: grid;
+    gap: 8px;
+    padding: 20px;
+    border-left: 4px solid #a84b1b;
+    background-color: #fff0e6;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.zonas-dato strong {
+    color: #873b16;
+}
+
+.zonas-dato span + strong {
+    margin-top: 12px;
+}
+
+.zonas-captura {
+    margin: 0;
+    padding: 12px;
+    background-color: white;
+    border: 1px solid #d8c5b9;
+    border-radius: 12px;
+}
+
+.zonas-captura a {
+    display: block;
+}
+
+.zonas-captura a:focus-visible {
+    outline: 3px solid #a84b1b;
+    outline-offset: 4px;
+}
+
+.zonas-captura img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.zonas-captura figcaption {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    color: #465568;
+}
+
+.zonas-fabricacion {
+    padding: 24px;
+    margin: 28px 0;
+    border: 1px solid #a84b1b;
+    border-radius: 12px;
+    background-color: #fffaf6;
+}
+
+.zonas-fabricacion h3 {
+    margin-top: 0;
+}
+
+.zonas-fabricacion p {
+    margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+    .zonas-contenido {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 
@@ -713,6 +823,101 @@
             antes de preparar la fabricación de la placa.
         </p>
     </div>
+</section>
+<section class="tema zonas-cobre">
+    <header class="zonas-titulo">
+        <span>PREPARACIÓN PARA FABRICACIÓN</span>
+        <h2>6. Delimitación de zonas de cobre</h2>
+    </header>
+
+    <p>
+        Una vez trazadas las conexiones, continuaremos con la
+        delimitación de las zonas de cobre de nuestra placa.
+        En esta etapa utilizaremos la herramienta
+        “Dibujar zonas rellenas” de KiCad para definir un área
+        de cobre dentro del diseño.
+    </p>
+
+    <div class="zonas-contenido">
+        <div class="zonas-texto">
+            <h3>La capa F.Cu</h3>
+
+            <p>
+                Trabajaremos en F.Cu, que corresponde a la capa
+                de cobre frontal de la PCB. Al crear la zona,
+                seleccionaremos la red eléctrica a la que
+                pertenecerá, de acuerdo con nuestro esquemático.
+            </p>
+
+            <p>
+                Esta selección es importante porque determina
+                qué conexiones podrán unirse al relleno.
+                La zona debe mantener la separación configurada
+                respecto a las pistas y terminales de otras redes,
+                evitando uniones eléctricas no deseadas.
+            </p>
+
+            <div class="zonas-dato">
+                <strong>Herramienta</strong>
+                <span>Dibujar zonas rellenas</span>
+                <strong>Capa de trabajo</strong>
+                <span>F.Cu · Cobre frontal</span>
+            </div>
+        </div>
+
+        <figure class="zonas-captura">
+            <a href="zonas.png" target="_blank" rel="noopener">
+                <img
+                    src="delimitacion.png"
+                    alt="Herramienta Dibujar zonas rellenas y capa F.Cu en KiCad"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Herramienta y capa que utilizaremos.
+                Pulsa la captura para ampliarla.
+            </figcaption>
+        </figure>
+    </div>
+
+    <h3>Delimitar, rellenar y revisar</h3>
+
+    <p>
+        Con la herramienta seleccionada dibujaremos el contorno
+        de la zona mediante sus vértices y cerraremos el polígono.
+        Después actualizaremos el relleno para comprobar cómo
+        se distribuye el cobre alrededor de las pistas y los
+        componentes. Dibujar el contorno es solo una parte:
+        también debemos revisar el resultado del relleno.
+    </p>
+
+    <p>
+        El límite de esta zona no sustituye el borde físico
+        de la placa. Ese contorno se define por separado en
+        Edge.Cuts y debe formar un perímetro cerrado. Revisaremos
+        ambos elementos para que la distribución del cobre
+        corresponda con las dimensiones de nuestra PCB.
+    </p>
+
+    <aside class="zonas-fabricacion">
+        <h3>¿Qué hará la CNC?</h3>
+        <p>
+            En nuestro proceso, la CNC mecanizará la placa
+            retirando material para aislar las conexiones;
+            no realizará la soldadura de los componentes.
+            Tras fabricar y revisar la PCB, colocaremos y
+            soldaremos los componentes en sus puntos de conexión.
+        </p>
+    </aside>
+
+    <p>
+        Antes de preparar los archivos de fabricación, actualizaremos
+        las zonas y ejecutaremos la revisión de reglas de diseño.
+        También verificaremos que las separaciones puedan realizarse
+        con la herramienta de la CNC. Así podremos corregir problemas
+        antes de mecanizar y avanzar hacia una placa lista para
+        el ensamblaje.
+    </p>
 </section>
     </main>
 </body>
