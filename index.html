@@ -226,6 +226,116 @@
         grid-template-columns: 1fr;
     }
 }
+.conexiones {
+    border-top: none;
+    padding-top: 0;
+}
+
+.conexiones-cabecera {
+    padding: 28px;
+    background-color: #142b45;
+    border-left: 6px solid #36c5d5;
+    border-radius: 12px;
+    color: white;
+}
+
+.conexiones .conexiones-cabecera h2 {
+    margin: 0;
+    color: white;
+}
+
+.conexiones-cabecera p {
+    margin: 12px 0 20px;
+}
+
+.ancho-conexion {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #d9f6fa;
+    color: #142b45;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.conexiones-imagen {
+    margin: 30px 0;
+    padding: 12px;
+    background-color: white;
+    border: 1px solid #cbd5df;
+    border-radius: 12px;
+}
+
+.conexiones-imagen a {
+    display: block;
+}
+
+.conexiones-imagen a:focus-visible {
+    outline: 3px solid #087e8b;
+    outline-offset: 4px;
+}
+
+.conexiones-imagen img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.conexiones-imagen figcaption {
+    padding: 14px 6px 4px;
+    color: #465568;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.conexiones h3 {
+    margin-top: 32px;
+    color: #142b45;
+    font-size: 22px;
+}
+
+.conexiones-pasos {
+    padding-left: 28px;
+    margin: 24px 0;
+}
+
+.conexiones-pasos li {
+    padding: 0 0 20px 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cbd5df;
+}
+
+.conexiones-pasos li::marker {
+    color: #087e8b;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.conexiones-pasos strong {
+    color: #142b45;
+    font-size: 20px;
+}
+
+.conexiones-pasos p {
+    margin: 10px 0 0;
+}
+
+.conexiones-cierre {
+    padding: 24px;
+    background-color: #e5f2f4;
+    border-radius: 12px;
+}
+
+.conexiones-cierre strong {
+    color: #142b45;
+    font-size: 20px;
+}
+
+.conexiones-cierre p {
+    margin-bottom: 0;
+}
     </style>
 </head>
 
@@ -520,6 +630,89 @@
             de fabricación de la CNC.
         </p>
     </aside>
+</section>
+<section class="tema conexiones">
+    <div class="conexiones-cabecera">
+        <h2>5. Conectar componentes</h2>
+        <p>Del esquemático a las conexiones de nuestra placa.</p>
+        <span class="ancho-conexion">Ancho elegido: 0.4 mm</span>
+    </div>
+
+    <p>
+        En esta etapa conectaremos los componentes mediante las pistas
+        de cobre de la PCB, siguiendo las conexiones definidas en el
+        esquemático. Para este trazado utilizaremos un ancho de
+        0.4 mm, respetando el mínimo que configuramos para nuestro
+        proyecto.
+    </p>
+
+    <p>
+        Es importante mantener este ajuste durante el recorrido.
+        Una pista más estrecha que el mínimo configurado puede
+        generar una infracción en la revisión de reglas de diseño
+        de KiCad. El valor de 0.4 mm corresponde a nuestra
+        configuración; no es una medida obligatoria para todos
+        los proyectos del programa.
+    </p>
+
+    <figure class="conexiones-imagen">
+        <a href="lineas.jpeg" target="_blank" rel="noopener">
+            <img
+                src="lineas.jpeg"
+                alt="Trazado de las pistas para conectar componentes en KiCad"
+                loading="lazy"
+            >
+        </a>
+        <figcaption>
+            Conexión de componentes mediante pistas en KiCad.
+            Pulsa la imagen para ampliarla.
+        </figcaption>
+    </figure>
+
+    <h3>¿Cómo realizaremos las conexiones?</h3>
+
+    <ol class="conexiones-pasos">
+        <li>
+            <strong>Definir el ancho</strong>
+            <p>
+                Seleccionaremos pistas de 0.4 mm antes de comenzar
+                y comprobaremos que los segmentos trazados conserven
+                el ancho elegido.
+            </p>
+        </li>
+
+        <li>
+            <strong>Organizar los recorridos</strong>
+            <p>
+                Buscaremos trayectorias ordenadas y bien alineadas.
+                Las pistas de conexiones diferentes no deben cruzarse
+                ni tocarse en una misma capa de cobre, ya que esto
+                podría provocar un cortocircuito. También debemos
+                respetar la separación configurada entre ellas.
+            </p>
+        </li>
+
+        <li>
+            <strong>Revisar los puntos de unión</strong>
+            <p>
+                Comprobaremos que cada pista llegue al punto de
+                conexión correcto del componente. No basta con que
+                parezca cercana: debe quedar conectada al pad
+                correspondiente, sin dejar conexiones pendientes.
+            </p>
+        </li>
+    </ol>
+
+    <div class="conexiones-cierre">
+        <strong>Antes de continuar</strong>
+        <p>
+            Ejecutaremos la revisión de reglas de diseño y
+            corregiremos las infracciones que aparezcan. Así
+            podremos detectar separaciones insuficientes,
+            conexiones incorrectas o pistas demasiado estrechas
+            antes de preparar la fabricación de la placa.
+        </p>
+    </div>
 </section>
     </main>
 </body>
