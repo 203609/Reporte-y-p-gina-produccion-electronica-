@@ -632,559 +632,920 @@
                 </div>
             </section>
 
-            <!-- SECCIÓN KICAD -->
-            <section
-                id="kicad"
-                class="panel"
-                aria-labelledby="titulo-kicad"
+           <!-- SECCIÓN KICAD -->
+<section
+    id="kicad"
+    class="panel"
+    aria-labelledby="titulo-kicad"
+>
+    <div class="titulo-seccion">
+        <span>Diseño de la placa paso por paso</span>
+        <h2 id="titulo-kicad" tabindex="-1">KiCad</h2>
+    </div>
+
+    <!-- PUNTO 1 -->
+    <section
+        id="kicad-produccion"
+        class="tema"
+        data-indice="1. Producción electrónica"
+    >
+        <h3 tabindex="-1">1. Producción electrónica</h3>
+
+        <p>
+            La producción electrónica es el proceso de diseñar,
+            fabricar, ensamblar y verificar dispositivos y circuitos
+            electrónicos. Su objetivo es transformar un diseño en
+            un producto funcional que cumpla con los requisitos
+            de calidad y funcionamiento.
+        </p>
+
+        <p>
+            En una placa de circuito impreso (PCB), este proceso
+            incluye elaborar el diagrama del circuito, seleccionar
+            los componentes, diseñar las pistas y fabricar la placa.
+            Después se colocan y sueldan los componentes y se
+            realizan pruebas para comprobar su funcionamiento.
+        </p>
+
+        <p>
+            En este proyecto documentamos la preparación del diseño
+            en KiCad. Explicamos las herramientas, los parámetros
+            utilizados y la relación entre el esquemático y la
+            distribución física de nuestra placa.
+        </p>
+
+        <aside class="nota">
+            <strong>Objetivo del proyecto</strong>
+            <p>
+                Desarrollar una PCB a partir de un esquemático,
+                preparar su diseño para fabricación y comprender
+                la función de cada etapa antes del ensamblaje.
+            </p>
+        </aside>
+    </section>
+
+    <!-- PUNTO 2 -->
+    <section
+        id="kicad-programa"
+        class="tema"
+        data-indice="2. Instalación y proyecto"
+    >
+        <h3 tabindex="-1">2. Instalación de KiCad y creación del proyecto</h3>
+
+        <p>
+            KiCad es el programa que utilizamos para elaborar el
+            esquemático y diseñar nuestra placa. Antes de colocar
+            los componentes, necesitamos instalarlo y crear un
+            proyecto que reúna los archivos del circuito.
+        </p>
+
+        <ol class="pasos">
+            <li>
+                <strong>Descargar el programa</strong>
+                <p>
+                    Entramos al sitio oficial de KiCad y seleccionamos
+                    la descarga correspondiente al sistema operativo
+                    de nuestra computadora.
+                </p>
+            </li>
+
+            <li>
+                <strong>Realizar la instalación</strong>
+                <p>
+                    Ejecutamos el instalador y seguimos sus
+                    indicaciones. Incluimos las bibliotecas estándar
+                    para disponer de símbolos y huellas al comenzar
+                    el diseño.
+                </p>
+            </li>
+
+            <li>
+                <strong>Abrir KiCad</strong>
+                <p>
+                    Al iniciar encontramos el administrador de
+                    proyectos. Desde esta ventana podemos crear
+                    el proyecto y acceder a los editores que
+                    utilizaremos durante el trabajo.
+                </p>
+            </li>
+
+            <li>
+                <strong>Crear el proyecto</strong>
+                <p>
+                    Seleccionamos Archivo, Nuevo proyecto y elegimos
+                    un nombre y una ubicación. Guardamos los archivos
+                    en una carpeta propia para mantener organizado
+                    el trabajo.
+                </p>
+            </li>
+        </ol>
+
+        <figure class="imagen-avance">
+            <a
+                href="inicio%20de%20kicad.jpeg"
+                target="_blank"
+                rel="noopener"
             >
-                <div class="titulo-seccion">
-                    <span>Diseño de la placa</span>
-                    <h2 id="titulo-kicad" tabindex="-1">KiCad</h2>
-                </div>
-
-                <!-- PUNTO 1 -->
-                <section
-                    id="kicad-produccion"
-                    class="tema"
-                    data-indice="1. Producción electrónica"
+                <img
+                    src="inicio%20de%20kicad.jpeg"
+                    alt="Descarga e inicio del trabajo con KiCad"
+                    loading="lazy"
                 >
-                    <h3 tabindex="-1">1. Producción electrónica</h3>
+            </a>
+            <figcaption>
+                Preparación de KiCad para comenzar el proyecto.
+            </figcaption>
+        </figure>
 
-                    <p>
-                        La producción electrónica es el proceso de diseñar,
-                        fabricar, ensamblar y verificar dispositivos y
-                        circuitos electrónicos. Su objetivo es transformar
-                        un diseño en un producto funcional que cumpla con
-                        los requisitos de calidad y funcionamiento.
-                    </p>
+        <div class="dos-columnas">
+            <div>
+                <h4>Editor de esquemáticos</h4>
+                <p>
+                    Aquí representamos los componentes mediante
+                    símbolos y definimos sus conexiones eléctricas.
+                    Todavía no estamos dibujando las pistas físicas
+                    de la placa.
+                </p>
+            </div>
 
-                    <p>
-                        En una placa de circuito impreso (PCB), este proceso
-                        incluye elaborar el diagrama del circuito,
-                        seleccionar los componentes, diseñar las pistas y
-                        fabricar la placa. Después, se colocan y sueldan los
-                        componentes y se realizan pruebas para comprobar
-                        que las conexiones y el circuito funcionen
-                        correctamente.
-                    </p>
+            <div>
+                <h4>Editor de PCB</h4>
+                <p>
+                    Aquí colocamos las huellas, definimos el
+                    contorno y trazamos las pistas de cobre
+                    siguiendo las conexiones del esquemático.
+                </p>
+            </div>
+        </div>
 
-                    <p>
-                        A lo largo de esta materia documentaremos la
-                        creación de nuestra placa, desde el diseño inicial
-                        hasta su ensamblaje y pruebas, mostrando los
-                        avances y las dificultades de cada etapa.
-                    </p>
-                </section>
-
-                <!-- PUNTO 2 -->
-                <section
-                    id="kicad-programa"
-                    class="tema"
-                    data-indice="2. Programa KiCad"
+        <figure class="imagen-avance">
+            <a href="KICAD.jpeg" target="_blank" rel="noopener">
+                <img
+                    src="KICAD.jpeg"
+                    alt="Interfaz del programa KiCad"
+                    loading="lazy"
                 >
-                    <h3 tabindex="-1">2. Programa KiCad</h3>
+            </a>
+            <figcaption>
+                Interfaz de KiCad y acceso a las herramientas del proyecto.
+            </figcaption>
+        </figure>
 
-                    <p>
-                        El programa que estamos utilizando para desarrollar
-                        nuestra placa de circuito impreso es KiCad. Con este
-                        software podemos elaborar el diagrama esquemático,
-                        seleccionar las huellas de los componentes y
-                        diseñar la distribución de nuestra placa.
-                    </p>
+        <aside class="nota">
+            <strong>Archivos principales</strong>
+            <p>
+                El archivo .kicad_pro guarda la configuración del
+                proyecto; .kicad_sch contiene el esquemático y
+                .kicad_pcb contiene el diseño de la placa.
+                Los conservamos juntos dentro de la carpeta del proyecto.
+            </p>
+        </aside>
+    </section>
 
-                    <p>
-                        Para comenzar, descargamos e instalamos KiCad en
-                        nuestro equipo. Este es el primer paso para contar
-                        con las herramientas necesarias y empezar a
-                        trabajar en el proyecto.
-                    </p>
+    <!-- PUNTO 3 -->
+    <section
+        id="kicad-biblioteca"
+        class="tema"
+        data-indice="3. Biblioteca de componentes"
+    >
+        <h3 tabindex="-1">3. Biblioteca de componentes</h3>
 
-                    <figure class="imagen-avance">
-                        <a
-                            href="inicio%20de%20kicad.jpeg"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <img
-                                src="inicio%20de%20kicad.jpeg"
-                                alt="Descarga del programa KiCad"
-                                loading="lazy"
-                            >
-                        </a>
-                        <figcaption>
-                            Descarga del programa KiCad.
-                        </figcaption>
-                    </figure>
+        <p>
+            Además de las bibliotecas incluidas con KiCad,
+            utilizamos una biblioteca complementaria para
+            trabajar con los componentes de la práctica.
+            Su nombre es <strong>________</strong>.
+        </p>
 
-                    <p>
-                        Desde la interfaz de KiCad podemos crear y
-                        organizar nuestro proyecto, abrir el editor de
-                        esquemáticos y acceder al editor de placas de
-                        circuito impreso. Estas herramientas nos permiten
-                        pasar de las conexiones eléctricas del circuito
-                        a su distribución física en la placa.
-                    </p>
+        <p>
+            Una biblioteca permite organizar y reutilizar símbolos
+            o huellas. El símbolo representa al componente en el
+            esquemático; la huella define sus puntos de conexión
+            y su distribución física sobre la placa.
+        </p>
 
-                    <figure class="imagen-avance">
-                        <a
-                            href="KICAD.jpeg"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <img
-                                src="KICAD.jpeg"
-                                alt="Interfaz del programa KiCad"
-                                loading="lazy"
-                            >
-                        </a>
-                        <figcaption>
-                            Interfaz del programa KiCad.
-                        </figcaption>
-                    </figure>
+        <aside class="nota">
+            <strong>Biblioteca utilizada: ________</strong>
+            <p>
+                El procedimiento concreto de instalación dependerá
+                del formato del paquete utilizado. A continuación
+                se describe cómo registrar bibliotecas entregadas
+                como archivos locales.
+            </p>
+        </aside>
 
-                    <p>
-                        Durante el diseño podemos definir las dimensiones
-                        de la placa, el ancho de las pistas, la separación
-                        entre conexiones y el tamaño de las perforaciones.
-                        Ajustaremos estos parámetros conforme a las
-                        capacidades de la máquina CNC ________, ya que
-                        con este equipo vamos a fabricar nuestra placa.
-                    </p>
+        <ol class="pasos">
+            <li>
+                <strong>Guardar los archivos</strong>
+                <p>
+                    Descargamos el paquete indicado para la clase
+                    y, si está comprimido, lo extraemos. Conservamos
+                    sus archivos en una ubicación estable para
+                    evitar que KiCad pierda sus rutas.
+                </p>
+            </li>
 
-                    <p>
-                        KiCad también cuenta con herramientas de revisión
-                        que ayudan a identificar posibles errores de
-                        conexión y verificar las reglas de diseño.
-                        Además, permite visualizar la placa en 3D para
-                        revisar la distribución de los componentes
-                        antes de pasar a la fabricación.
-                    </p>
-                </section>
+            <li>
+                <strong>Registrar los símbolos</strong>
+                <p>
+                    Si el paquete incluye un archivo .kicad_sym,
+                    abrimos Preferencias y Administrar bibliotecas
+                    de símbolos. Agregamos la biblioteca existente
+                    seleccionando ese archivo.
+                </p>
+            </li>
 
-                <!-- PUNTO 3 -->
-                <section
-                    id="kicad-esquematico"
-                    class="tema"
-                    data-indice="3. Elaboración del esquemático"
+            <li>
+                <strong>Registrar las huellas</strong>
+                <p>
+                    Si contiene una carpeta .pretty, la agregamos
+                    desde Administrar bibliotecas de huellas.
+                    Esa carpeta reúne las huellas disponibles
+                    para el diseño de la PCB.
+                </p>
+            </li>
+
+            <li>
+                <strong>Comprobar que esté disponible</strong>
+                <p>
+                    Abrimos el selector de símbolos y buscamos
+                    el nombre de la biblioteca o del componente.
+                    Revisamos también que sus huellas puedan
+                    seleccionarse al realizar la asignación.
+                </p>
+            </li>
+        </ol>
+
+        <p>
+            Podemos registrar una biblioteca para todos los proyectos
+            o únicamente para el proyecto actual. Si el paquete se
+            instala mediante un gestor de complementos, seguiremos
+            sus instrucciones en lugar de repetir el registro manual.
+        </p>
+
+        <!-- Aquí se agregará la captura de la biblioteca. -->
+    </section>
+
+    <!-- PUNTO 4 -->
+    <section
+        id="kicad-esquematico"
+        class="tema"
+        data-indice="4. Elaboración del esquemático"
+    >
+        <h3 tabindex="-1">4. Elaboración del esquemático</h3>
+
+        <p>
+            El esquemático es nuestra guía de conexiones.
+            En esta etapa colocamos los símbolos de las resistencias,
+            los interruptores y los demás componentes del circuito.
+            Su posición ayuda a leer el diagrama, pero no determina
+            todavía su ubicación final sobre la PCB.
+        </p>
+
+        <ol class="pasos">
+            <li>
+                <strong>Abrir el editor</strong>
+                <p>
+                    Desde el administrador de proyectos abrimos
+                    el archivo .kicad_sch. Aparecerá la hoja donde
+                    construiremos el diagrama.
+                </p>
+            </li>
+
+            <li>
+                <strong>Buscar un componente</strong>
+                <p>
+                    Con el cursor sobre la hoja presionamos
+                    <kbd>A</kbd>, el atajo predeterminado para
+                    añadir símbolos. En el cuadro de búsqueda
+                    escribimos el nombre del componente o de
+                    la biblioteca <strong>________</strong>.
+                </p>
+            </li>
+
+            <li>
+                <strong>Seleccionar y colocar</strong>
+                <p>
+                    Revisamos el símbolo y sus terminales,
+                    confirmamos la selección y hacemos clic
+                    para colocarlo. Repetimos el proceso con
+                    los componentes que necesita el circuito.
+                </p>
+            </li>
+
+            <li>
+                <strong>Acomodar los símbolos</strong>
+                <p>
+                    Utilizamos <kbd>M</kbd> para mover y
+                    <kbd>R</kbd> para girar el elemento señalado.
+                    Buscamos una distribución legible y dejamos
+                    espacio para las conexiones.
+                </p>
+            </li>
+
+            <li>
+                <strong>Editar propiedades</strong>
+                <p>
+                    Con <kbd>E</kbd> abrimos las propiedades
+                    del símbolo. Revisamos su referencia y
+                    su valor, utilizando los datos del circuito
+                    de la práctica.
+                </p>
+            </li>
+
+            <li>
+                <strong>Conectar las terminales</strong>
+                <p>
+                    Con <kbd>W</kbd> comenzamos un cable desde
+                    una terminal y lo llevamos a la terminal
+                    correspondiente. Comprobamos las uniones
+                    para evitar extremos que solo parezcan
+                    conectados.
+                </p>
+            </li>
+        </ol>
+
+        <figure class="imagen-avance">
+            <a href="esquematico.jpeg" target="_blank" rel="noopener">
+                <img
+                    src="esquematico.jpeg"
+                    alt="Esquemático del circuito en KiCad"
+                    loading="lazy"
                 >
-                    <h3 tabindex="-1">3. Elaboración del esquemático</h3>
+            </a>
+            <figcaption>
+                Distribución de los símbolos y conexiones del esquemático.
+            </figcaption>
+        </figure>
 
-                    <p>
-                        Iniciamos armando el circuito en el editor de
-                        esquemáticos de KiCad. Colocamos algunas
-                        resistencias e interruptores (switches),
-                        representados mediante sus símbolos eléctricos,
-                        y realizamos las conexiones necesarias entre
-                        los componentes para armar nuestro circuito.
-                    </p>
+        <aside class="nota">
+            <strong>Cables del esquema y pistas de la PCB</strong>
+            <p>
+                Los cables del esquemático representan conexiones
+                lógicas. El ancho de 0.4 mm lo aplicaremos después
+                a las pistas físicas de la PCB, no a estos cables.
+                Los atajos indicados corresponden a la configuración
+                predeterminada de KiCad.
+            </p>
+        </aside>
+    </section>
 
-                    <figure class="imagen-avance">
-                        <a
-                            href="esquematico.jpeg"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <img
-                                src="esquematico.jpeg"
-                                alt="Esquemático de nuestro circuito en KiCad"
-                                loading="lazy"
-                            >
-                        </a>
-                        <figcaption>
-                            Elaboración del esquemático del circuito.
-                        </figcaption>
-                    </figure>
+    <!-- PUNTO 5 -->
+    <section
+        id="kicad-huellas"
+        class="tema"
+        data-indice="5. Asignación de huellas"
+    >
+        <h3 tabindex="-1">5. Asignación de huellas</h3>
 
-                    <p>
-                        El esquemático es importante porque sirve como
-                        guía para diseñar la placa de circuito impreso.
-                        Por esta razón lo elaboramos primero: nos permite
-                        identificar los componentes, entender cómo se
-                        conectan y revisar las conexiones antes de
-                        trabajar en la distribución física de la placa.
-                    </p>
+        <p>
+            Después de colocar los símbolos, asignamos las huellas
+            de los componentes que se montarán en la placa.
+            Una huella contiene los pads donde se conectan o
+            sueldan sus terminales y las referencias geométricas
+            necesarias para colocarlo.
+        </p>
 
-                    <p>
-                        Después asignamos a cada componente su huella,
-                        que representa el espacio y los puntos de conexión
-                        que ocupará en la PCB. La huella debe coincidir
-                        con las dimensiones y la posición de las
-                        terminales del componente que utilizaremos.
-                    </p>
+        <div class="dos-columnas">
+            <div>
+                <h4>Símbolo</h4>
+                <p>
+                    Explica la función y las conexiones eléctricas
+                    del componente. Por ejemplo, el símbolo de
+                    una resistencia indica sus dos terminales.
+                </p>
+            </div>
 
-                    <figure class="imagen-avance">
-                        <a
-                            href="huella.jpeg"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <img
-                                src="huella.jpeg"
-                                alt="Huella de un componente en KiCad"
-                                loading="lazy"
-                            >
-                        </a>
-                        <figcaption>
-                            Asignación de la huella de un componente.
-                        </figcaption>
-                    </figure>
+            <div>
+                <h4>Huella</h4>
+                <p>
+                    Corresponde al encapsulado físico. Define
+                    las dimensiones y la separación de los pads
+                    que deben coincidir con el componente real.
+                </p>
+            </div>
+        </div>
 
-                    <p>
-                        Una vez definidos el esquemático y las huellas,
-                        podemos continuar en el editor de PCB. Ahí
-                        acomodamos los componentes y trazamos las pistas
-                        que los conectan, buscando una distribución
-                        ordenada que facilite la fabricación y la
-                        soldadura.
-                    </p>
+        <ol class="pasos">
+            <li>
+                <strong>Abrir la asignación</strong>
+                <p>
+                    En el editor de esquemáticos abrimos
+                    Herramientas y Asignar huellas.
+                    Seleccionamos el componente que queremos configurar.
+                </p>
+            </li>
 
-                    <figure class="imagen-avance">
-                        <a
-                            href="circuito.jpeg"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <img
-                                src="circuito.jpeg"
-                                alt="Diseño del circuito en KiCad"
-                                loading="lazy"
-                            >
-                        </a>
-                        <figcaption>
-                            Avance del diseño del circuito en KiCad.
-                        </figcaption>
-                    </figure>
+            <li>
+                <strong>Buscar la huella adecuada</strong>
+                <p>
+                    Localizamos la biblioteca correspondiente
+                    y revisamos las opciones disponibles.
+                    No elegimos únicamente por el nombre:
+                    comprobamos las medidas del componente real.
+                </p>
+            </li>
 
-                    <p>
-                        Antes de fabricar la placa, revisaremos que las
-                        conexiones correspondan al esquemático y que el
-                        diseño cumpla con los parámetros establecidos
-                        para la CNC. Finalmente, exportaremos los archivos
-                        necesarios para preparar el mecanizado en el
-                        software correspondiente.
-                    </p>
-                </section>
+            <li>
+                <strong>Verificar sus terminales</strong>
+                <p>
+                    Revisamos la cantidad y numeración de pads,
+                    su separación y si el componente es de
+                    montaje superficial o de orificio pasante.
+                </p>
+            </li>
 
-                <!-- PUNTO 4 -->
-                <section
-                    id="kicad-parametros"
-                    class="tema parametros"
-                    data-indice="4. Parámetros"
+            <li>
+                <strong>Asignar y guardar</strong>
+                <p>
+                    Confirmamos la huella y repetimos la revisión
+                    para cada componente. Guardamos los cambios
+                    antes de trasladar el diseño al editor de PCB.
+                </p>
+            </li>
+        </ol>
+
+        <figure class="imagen-avance">
+            <a href="huella.jpeg" target="_blank" rel="noopener">
+                <img
+                    src="huella.jpeg"
+                    alt="Selección de la huella de un componente"
+                    loading="lazy"
                 >
-                    <h3 tabindex="-1">4. Parámetros</h3>
+            </a>
+            <figcaption>
+                Revisión y asignación de huellas para nuestra placa.
+            </figcaption>
+        </figure>
 
-                    <p>
-                        Una vez organizados los componentes, comenzamos
-                        a ajustar los parámetros de las pistas que
-                        conectarán nuestro circuito. Necesitamos definir
-                        el ancho de las conexiones y dejar espacio
-                        suficiente entre ellas para facilitar la
-                        fabricación de la placa.
-                    </p>
+        <aside class="nota">
+            <strong>¿Por qué necesitamos la huella?</strong>
+            <p>
+                Podemos dibujar un símbolo sin haber elegido
+                su huella, pero para colocar ese componente físico
+                en la PCB necesitamos definir dónde estarán
+                sus terminales. Los símbolos de alimentación,
+                como GND, no representan por sí solos una pieza
+                que deba montarse.
+            </p>
+        </aside>
+    </section>
 
-                    <div class="medidas-pistas">
-                        <div class="medida">
-                            <span>Ancho mínimo</span>
-                            <strong>0.4 <small>mm</small></strong>
-                            <span>
-                                Límite inferior establecido para
-                                nuestras pistas.
-                            </span>
-                        </div>
+    <!-- PUNTO 6 -->
+    <section
+        id="kicad-pcb"
+        class="tema"
+        data-indice="6. Paso al editor de PCB"
+    >
+        <h3 tabindex="-1">6. Paso al editor de PCB</h3>
 
-                        <div class="medida">
-                            <span>Ancho máximo</span>
-                            <strong>0.8 <small>mm</small></strong>
-                            <span>
-                                Límite superior elegido para este diseño.
-                            </span>
-                        </div>
-                    </div>
+        <p>
+            Con el esquema y las huellas preparados pasamos
+            al diseño físico. Antes de trasladarlo revisamos
+            las referencias de los componentes y ejecutamos
+            la comprobación de reglas eléctricas del esquemático.
+        </p>
 
-                    <p>
-                        Para nuestro proyecto establecimos un ancho mínimo
-                        de 0.4 mm y un máximo de 0.8 mm. Con este intervalo
-                        buscamos mantener un trazado ordenado y reducir
-                        dificultades al fabricar las conexiones.
-                        El ancho elegido debe considerar el espacio
-                        disponible y la corriente que circulará por
-                        cada pista.
-                    </p>
+        <ol class="pasos">
+            <li>
+                <strong>Actualizar la PCB desde el esquema</strong>
+                <p>
+                    Utilizamos la opción Actualizar PCB desde
+                    el esquemático, cuyo atajo predeterminado
+                    es <kbd>F8</kbd>. Revisamos los cambios
+                    propuestos y confirmamos la actualización.
+                </p>
+            </li>
 
-                    <div class="dos-columnas">
-                        <figure class="captura">
-                            <a
-                                href="pistas.jpeg"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                <img
-                                    src="pistas.jpeg"
-                                    alt="Configuración de las pistas en KiCad"
-                                    loading="lazy"
-                                >
-                            </a>
-                            <figcaption>
-                                Ajuste de las pistas en KiCad.
-                                Pulsa la imagen para ampliarla.
-                            </figcaption>
-                        </figure>
+            <li>
+                <strong>Colocar las huellas</strong>
+                <p>
+                    Las huellas se incorporan al editor de PCB.
+                    Las colocamos en el área de trabajo y
+                    comenzamos a distribuirlas según sus conexiones.
+                </p>
+            </li>
 
-                        <div>
-                            <h4>¿Qué buscamos con estos ajustes?</h4>
+            <li>
+                <strong>Interpretar las conexiones pendientes</strong>
+                <p>
+                    Las líneas guía muestran qué pads necesitan
+                    conectarse. Estas líneas todavía no son
+                    pistas de cobre: sirven como referencia
+                    para realizar el trazado.
+                </p>
+            </li>
 
-                            <p>
-                                Definir los anchos antes de continuar
-                                nos da una referencia para trabajar
-                                de forma consistente y distribuir
-                                mejor las conexiones.
-                            </p>
+            <li>
+                <strong>Organizar el espacio</strong>
+                <p>
+                    Acomodamos los componentes para facilitar
+                    los recorridos y dejar espacio para soldar.
+                    Revisamos la orientación de las piezas y
+                    el acceso a los interruptores y conectores.
+                </p>
+            </li>
+        </ol>
 
-                            <p>
-                                También revisamos las separaciones,
-                                especialmente donde se juntan varias
-                                pistas o terminales. El ancho y la
-                                separación son parámetros diferentes
-                                y ambos deben comprobarse.
-                            </p>
-                        </div>
-                    </div>
-
-                    <h4>Del diseño a la fabricación</h4>
-
-                    <p>
-                        La herramienta de la CNC necesita retirar el
-                        cobre entre las conexiones sin dañar las pistas
-                        que queremos conservar. Por eso revisaremos
-                        que las separaciones sean compatibles con
-                        la herramienta y con la precisión del equipo.
-                    </p>
-
-                    <p>
-                        Finalmente, comprobaremos que no existan
-                        conexiones pendientes y ejecutaremos la revisión
-                        de reglas de diseño de KiCad antes de preparar
-                        la fabricación.
-                    </p>
-
-                    <aside class="nota">
-                        <strong>Criterio de nuestro proyecto</strong>
-                        <p>
-                            Las medidas elegidas corresponden a esta
-                            placa. Su adecuación se verificará
-                            considerando la corriente del circuito,
-                            el espesor del cobre y las capacidades
-                            de fabricación de la CNC.
-                        </p>
-                    </aside>
-                </section>
-
-                <!-- PUNTO 5 -->
-                <section
-                    id="kicad-conexiones"
-                    class="tema conexiones"
-                    data-indice="5. Conectar componentes"
+        <figure class="imagen-avance">
+            <a href="circuito.jpeg" target="_blank" rel="noopener">
+                <img
+                    src="circuito.jpeg"
+                    alt="Diseño del circuito y distribución de componentes"
+                    loading="lazy"
                 >
-                    <div class="conexiones-cabecera">
-                        <h3 tabindex="-1">5. Conectar componentes</h3>
-                        <span class="etiqueta-ancho">
-                            Ancho elegido: 0.4 mm
-                        </span>
-                    </div>
+            </a>
+            <figcaption>
+                Avance del diseño y distribución del circuito.
+            </figcaption>
+        </figure>
 
-                    <p>
-                        En esta etapa conectaremos los componentes
-                        mediante las pistas de cobre de la PCB,
-                        siguiendo las conexiones del esquemático.
-                        Para este trazado utilizaremos un ancho
-                        de 0.4 mm, respetando el mínimo configurado
-                        para nuestro proyecto.
-                    </p>
+        <p>
+            Si necesitamos modificar una conexión eléctrica,
+            realizamos el cambio en el esquemático y volvemos
+            a actualizar la PCB. De esta manera mantenemos
+            ambos archivos consistentes.
+        </p>
+    </section>
 
-                    <p>
-                        Una pista más estrecha que el mínimo configurado
-                        puede generar una infracción en la revisión
-                        de reglas de diseño. El valor de 0.4 mm
-                        corresponde a nuestra configuración; no es
-                        una medida obligatoria para todos los
-                        proyectos de KiCad.
-                    </p>
+    <!-- PUNTO 7 -->
+    <section
+        id="kicad-parametros"
+        class="tema parametros"
+        data-indice="7. Parámetros de las pistas"
+    >
+        <h3 tabindex="-1">7. Parámetros de las pistas</h3>
 
-                    <figure class="imagen-avance">
-                        <a
-                            href="lineas.jpeg"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <img
-                                src="lineas.jpeg"
-                                alt="Trazado de pistas para conectar componentes"
-                                loading="lazy"
-                            >
-                        </a>
-                        <figcaption>
-                            Conexión de componentes mediante pistas
-                            en KiCad.
-                        </figcaption>
-                    </figure>
+        <p>
+            Antes de trazar las conexiones definimos los anchos
+            que utilizaremos. Para nuestro proyecto establecimos
+            un mínimo de 0.4 mm y un máximo elegido de 0.8 mm,
+            considerando el espacio disponible y el proceso
+            de fabricación.
+        </p>
 
-                    <h4>¿Cómo realizaremos las conexiones?</h4>
+        <div class="medidas-pistas">
+            <div class="medida">
+                <span>Ancho mínimo</span>
+                <strong>0.4 <small>mm</small></strong>
+                <span>Referencia mínima para nuestras pistas.</span>
+            </div>
 
-                    <ol class="pasos">
-                        <li>
-                            <strong>Definir el ancho</strong>
-                            <p>
-                                Seleccionaremos pistas de 0.4 mm y
-                                comprobaremos que los segmentos
-                                trazados conserven el ancho elegido.
-                            </p>
-                        </li>
+            <div class="medida">
+                <span>Ancho máximo elegido</span>
+                <strong>0.8 <small>mm</small></strong>
+                <span>Límite de trabajo adoptado para este diseño.</span>
+            </div>
+        </div>
 
-                        <li>
-                            <strong>Organizar los recorridos</strong>
-                            <p>
-                                Buscaremos trayectorias ordenadas.
-                                Las pistas de conexiones diferentes
-                                no deben cruzarse ni tocarse en una
-                                misma capa de cobre, ya que podrían
-                                provocar un cortocircuito.
-                                Respetaremos también la separación
-                                configurada entre ellas.
-                            </p>
-                        </li>
+        <div class="dos-columnas">
+            <figure class="captura">
+                <a href="pistas.jpeg" target="_blank" rel="noopener">
+                    <img
+                        src="pistas.jpeg"
+                        alt="Configuración de los parámetros de pistas"
+                        loading="lazy"
+                    >
+                </a>
+                <figcaption>
+                    Parámetros utilizados para el trazado.
+                </figcaption>
+            </figure>
 
-                        <li>
-                            <strong>Revisar los puntos de unión</strong>
-                            <p>
-                                Cada pista debe llegar al pad correcto
-                                del componente. No basta con que
-                                parezca cercana: debe quedar
-                                eléctricamente conectada, sin
-                                dejar conexiones pendientes.
-                            </p>
-                        </li>
-                    </ol>
+            <div>
+                <h4>Configuración paso por paso</h4>
 
-                    <aside class="nota">
-                        <strong>Antes de continuar</strong>
-                        <p>
-                            Ejecutaremos la revisión de reglas de
-                            diseño para detectar separaciones
-                            insuficientes, conexiones incorrectas
-                            o pistas demasiado estrechas.
-                        </p>
-                    </aside>
-                </section>
+                <p>
+                    Abrimos la configuración de la placa y
+                    revisamos las restricciones de diseño.
+                    Establecemos el ancho mínimo de pista
+                    y comprobamos las separaciones necesarias.
+                </p>
 
-                <!-- PUNTO 6 -->
-                <section
-                    id="kicad-zonas"
-                    class="tema zonas-cobre"
-                    data-indice="6. Zonas de cobre"
+                <p>
+                    Después configuramos los anchos predefinidos
+                    que utilizaremos durante el trazado.
+                    Seleccionamos 0.4 mm para comenzar
+                    las conexiones de esta práctica.
+                </p>
+            </div>
+        </div>
+
+        <aside class="nota">
+            <strong>Una medida disponible no es una restricción</strong>
+            <p>
+                Agregar 0.4 mm y 0.8 mm a la lista de anchos
+                facilita seleccionarlos, pero no establece
+                automáticamente un mínimo y un máximo exigidos
+                por el comprobador. Las restricciones se configuran
+                por separado.
+            </p>
+        </aside>
+
+        <p>
+            El ancho de pista y la separación entre pistas son
+            parámetros diferentes. Revisaremos ambos de acuerdo
+            con la corriente del circuito, el espesor del cobre
+            y las capacidades de la máquina CNC ________.
+        </p>
+    </section>
+
+    <!-- PUNTO 8 -->
+    <section
+        id="kicad-conexiones"
+        class="tema conexiones"
+        data-indice="8. Conectar componentes"
+    >
+        <div class="conexiones-cabecera">
+            <h3 tabindex="-1">8. Conectar componentes</h3>
+            <span class="etiqueta-ancho">
+                Ancho elegido para el trazado: 0.4 mm
+            </span>
+        </div>
+
+        <p>
+            Ahora convertimos las conexiones pendientes en pistas
+            de cobre. Seguimos las líneas guía del editor y
+            trabajamos con los anchos definidos previamente.
+        </p>
+
+        <ol class="pasos">
+            <li>
+                <strong>Seleccionar capa y ancho</strong>
+                <p>
+                    Activamos la capa de cobre en la que
+                    trazaremos y elegimos el ancho de 0.4 mm.
+                    Comprobamos estos ajustes antes de iniciar.
+                </p>
+            </li>
+
+            <li>
+                <strong>Comenzar desde un pad</strong>
+                <p>
+                    Situamos el cursor sobre el pad de origen
+                    y activamos Enrutar pistas. El atajo
+                    predeterminado es <kbd>X</kbd>.
+                </p>
+            </li>
+
+            <li>
+                <strong>Definir el recorrido</strong>
+                <p>
+                    Guiamos la pista hacia su destino.
+                    Buscamos trayectorias claras y evitamos
+                    rodeos innecesarios, respetando el espacio
+                    entre componentes y otras conexiones.
+                </p>
+            </li>
+
+            <li>
+                <strong>Terminar la conexión</strong>
+                <p>
+                    Llegamos al pad de destino y confirmamos
+                    el trazado. Revisamos que la conexión
+                    pendiente correspondiente haya quedado resuelta.
+                </p>
+            </li>
+
+            <li>
+                <strong>Repetir y comprobar</strong>
+                <p>
+                    Continuamos con las demás conexiones.
+                    Si no encontramos un recorrido adecuado,
+                    revisamos la colocación de los componentes
+                    antes de forzar una pista.
+                </p>
+            </li>
+        </ol>
+
+        <figure class="imagen-avance">
+            <a href="lineas.jpeg" target="_blank" rel="noopener">
+                <img
+                    src="lineas.jpeg"
+                    alt="Conexión de los componentes mediante pistas"
+                    loading="lazy"
                 >
-                    <span class="zonas-subtitulo">
-                        PREPARACIÓN PARA FABRICACIÓN
-                    </span>
+            </a>
+            <figcaption>
+                Trazado de las pistas para conectar los componentes.
+            </figcaption>
+        </figure>
 
-                    <h3 tabindex="-1">
-                        6. Delimitación de zonas de cobre
-                    </h3>
+        <aside class="nota">
+            <strong>Evitar conexiones no deseadas</strong>
+            <p>
+                Las pistas de redes diferentes no deben tocarse
+                ni cruzarse en una misma capa de cobre.
+                Esto provocaría una unión eléctrica.
+                También debemos comprobar que no queden
+                conexiones pendientes.
+            </p>
+        </aside>
+    </section>
 
-                    <p>
-                        Una vez trazadas las conexiones, continuaremos
-                        con la delimitación de las zonas de cobre.
-                        Utilizaremos la herramienta “Dibujar zonas
-                        rellenas” de KiCad para definir un área
-                        de cobre dentro del diseño.
-                    </p>
+    <!-- PUNTO 9 -->
+    <section
+        id="kicad-zonas"
+        class="tema zonas-cobre"
+        data-indice="9. Contorno y zonas de cobre"
+    >
+        <span class="zonas-subtitulo">
+            PREPARACIÓN PARA FABRICACIÓN
+        </span>
 
-                    <div class="dos-columnas">
-                        <div>
-                            <h4>La capa F.Cu</h4>
+        <h3 tabindex="-1">9. Contorno y zonas de cobre</h3>
 
-                            <p>
-                                Trabajaremos en F.Cu, que corresponde
-                                a la capa de cobre frontal de la PCB.
-                                Al crear la zona seleccionaremos
-                                la red eléctrica a la que pertenecerá,
-                                de acuerdo con nuestro esquemático.
-                            </p>
+        <p>
+            En esta etapa diferenciamos dos elementos:
+            el contorno físico que determina la forma de
+            la placa y las zonas de cobre que forman parte
+            de su diseño eléctrico.
+        </p>
 
-                            <p>
-                                La zona debe mantener la separación
-                                configurada respecto a las pistas
-                                y terminales de otras redes, evitando
-                                uniones eléctricas no deseadas.
-                            </p>
+        <div class="dos-columnas">
+            <div>
+                <h4>Contorno en Edge.Cuts</h4>
+                <p>
+                    Seleccionamos Edge.Cuts y dibujamos un
+                    perímetro cerrado con las dimensiones
+                    de nuestra placa. Revisamos que sus extremos
+                    coincidan y que no existan segmentos duplicados
+                    o cruces.
+                </p>
 
-                            <dl class="zonas-dato">
-                                <dt>Herramienta</dt>
-                                <dd>Dibujar zonas rellenas</dd>
-                                <dt>Capa de trabajo</dt>
-                                <dd>F.Cu · Cobre frontal</dd>
-                            </dl>
-                        </div>
+                <h4>Zona de cobre en F.Cu</h4>
+                <p>
+                    Seleccionamos F.Cu y utilizamos la herramienta
+                    Dibujar zonas rellenas. Elegimos la red
+                    eléctrica a la que pertenecerá la zona
+                    y configuramos sus separaciones.
+                </p>
 
-                        <figure class="captura">
-                            <a
-                                href="delimitacion.jpeg"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                <img
-                                    src="delimitacion.jpeg"
-                                    alt="Herramienta Dibujar zonas rellenas y capa F.Cu"
-                                    loading="lazy"
-                                >
-                            </a>
-                            <figcaption>
-                                Herramienta y capa que utilizaremos.
-                                Pulsa la captura para ampliarla.
-                            </figcaption>
-                        </figure>
-                    </div>
+                <dl class="zonas-dato">
+                    <dt>Edge.Cuts</dt>
+                    <dd>Contorno físico de la placa.</dd>
 
-                    <h4>Delimitar, rellenar y revisar</h4>
+                    <dt>F.Cu</dt>
+                    <dd>Capa de cobre frontal.</dd>
 
-                    <p>
-                        Dibujaremos el contorno de la zona mediante
-                        sus vértices y cerraremos el polígono.
-                        Después actualizaremos el relleno para
-                        comprobar cómo se distribuye el cobre
-                        alrededor de las pistas y los componentes.
-                    </p>
+                    <dt>Dibujar zonas rellenas</dt>
+                    <dd>Herramienta para crear una zona de cobre.</dd>
+                </dl>
+            </div>
 
-                    <p>
-                        El límite de esta zona no sustituye el borde
-                        físico de la placa. Ese contorno se define
-                        por separado en Edge.Cuts y debe formar
-                        un perímetro cerrado.
-                    </p>
+            <figure class="captura">
+                <a
+                    href="delimitacion.jpeg"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <img
+                        src="delimitacion.jpeg"
+                        alt="Herramienta Dibujar zonas rellenas y capa F.Cu"
+                        loading="lazy"
+                    >
+                </a>
+                <figcaption>
+                    Herramienta de zonas rellenas en KiCad.
+                </figcaption>
+            </figure>
+        </div>
 
-                    <aside class="nota nota-cobre">
-                        <strong>¿Qué hará la CNC?</strong>
-                        <p>
-                            La CNC mecanizará la placa retirando
-                            material para aislar las conexiones.
-                            La soldadura se realizará después de
-                            fabricar y revisar la PCB, al colocar
-                            los componentes.
-                        </p>
-                    </aside>
+        <ol class="pasos">
+            <li>
+                <strong>Definir la zona</strong>
+                <p>
+                    Colocamos sus vértices alrededor del área
+                    que queremos rellenar y cerramos el polígono.
+                </p>
+            </li>
 
-                    <p>
-                        Antes de preparar los archivos de fabricación,
-                        actualizaremos las zonas y ejecutaremos
-                        la revisión de reglas de diseño.
-                        Verificaremos también que las separaciones
-                        puedan realizarse con la herramienta
-                        de la CNC.
-                    </p>
-                </section>
-            </section>
+            <li>
+                <strong>Actualizar el relleno</strong>
+                <p>
+                    Utilizamos la orden de rellenar zonas.
+                    Su atajo predeterminado es <kbd>B</kbd>.
+                    Revisamos el cobre generado alrededor
+                    de las pistas y pads.
+                </p>
+            </li>
 
-            <!-- SECCIÓN MONOFAB -->
+            <li>
+                <strong>Comprobar el resultado</strong>
+                <p>
+                    Verificamos la red asignada, las separaciones
+                    y las conexiones de los pads con el relleno.
+                    Revisamos también las posibles áreas de
+                    cobre que hayan quedado aisladas.
+                </p>
+            </li>
+        </ol>
+
+        <aside class="nota nota-cobre">
+            <strong>Mecanizado y soldadura son etapas distintas</strong>
+            <p>
+                La fresadora CNC retira material para fabricar
+                la placa. La soldadura de los componentes se
+                realiza posteriormente. Crear una zona de cobre
+                no genera por sí solo las trayectorias de
+                mecanizado de la máquina.
+            </p>
+        </aside>
+    </section>
+
+    <!-- PUNTO 10 -->
+    <section
+        id="kicad-revision"
+        class="tema"
+        data-indice="10. Revisión y exportación"
+    >
+        <h3 tabindex="-1">10. Revisión y preparación de archivos</h3>
+
+        <p>
+            Antes de fabricar, revisaremos el diseño completo.
+            Esta comprobación permite detectar problemas que
+            podrían pasar inadvertidos al observar únicamente
+            la apariencia de la placa.
+        </p>
+
+        <ol class="pasos">
+            <li>
+                <strong>Guardar y actualizar</strong>
+                <p>
+                    Guardaremos el esquemático y la PCB.
+                    Si hubo cambios eléctricos, actualizaremos
+                    la placa desde el esquema y volveremos
+                    a rellenar las zonas.
+                </p>
+            </li>
+
+            <li>
+                <strong>Comprobar reglas eléctricas</strong>
+                <p>
+                    En el esquemático ejecutaremos el ERC.
+                    Revisaremos cada aviso para identificar
+                    posibles conexiones incompatibles o
+                    terminales que requieren atención.
+                </p>
+            </li>
+
+            <li>
+                <strong>Comprobar reglas de diseño</strong>
+                <p>
+                    En el editor de PCB ejecutaremos el DRC.
+                    Revisaremos separaciones, anchos, conexiones
+                    pendientes y errores del contorno.
+                    Corregiremos los problemas antes de continuar.
+                </p>
+            </li>
+
+            <li>
+                <strong>Inspeccionar la placa</strong>
+                <p>
+                    Revisaremos la orientación, las huellas
+                    y las dimensiones. La vista 3D puede ayudar
+                    a comprender la distribución, aunque no
+                    sustituye las comprobaciones eléctricas.
+                </p>
+            </li>
+
+            <li>
+                <strong>Preparar la exportación</strong>
+                <p>
+                    Generaremos los archivos que acepte el
+                    programa utilizado para preparar la fabricación.
+                    Si requiere Gerber y archivos de taladrado,
+                    exportaremos las capas necesarias, el contorno
+                    y las perforaciones correspondientes.
+                </p>
+            </li>
+
+            <li>
+                <strong>Preparar el mecanizado</strong>
+                <p>
+                    En el software de fabricación se definirán
+                    las herramientas y las trayectorias compatibles
+                    con la máquina. El formato final y los parámetros
+                    se documentarán en los apartados de Monofab
+                    y CNC cuando realicemos esta etapa.
+                </p>
+            </li>
+        </ol>
+
+        <aside class="nota">
+            <strong>Resultado esperado</strong>
+            <p>
+                Un diseño revisado, con sus conexiones completas,
+                huellas correctas y archivos preparados para
+                el siguiente proceso de fabricación.
+                Superar las comprobaciones no sustituye
+                las pruebas de funcionamiento del circuito.
+            </p>
+        </aside>
+
+        <!-- Aquí se agregarán las capturas de revisión y exportación. -->
+    </section>
+</section>
             <section
                 id="monofab"
                 class="panel"
