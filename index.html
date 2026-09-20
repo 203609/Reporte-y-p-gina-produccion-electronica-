@@ -555,6 +555,66 @@
                 scroll-behavior: auto;
             }
         }
+        #integrantes .perfiles-equipo {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        #integrantes .perfil {
+            min-width: 0;
+            overflow: hidden;
+            background: white;
+            border: 1px solid #d7dfe7;
+            border-radius: 16px;
+        }
+
+        #integrantes .perfil-foto {
+            display: block;
+            width: 180px;
+            max-width: calc(100% - 40px);
+            height: 220px;
+            margin: 24px auto 0;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+        }
+
+        #integrantes .perfil-contenido {
+            padding: 24px;
+        }
+
+        #integrantes .perfil-contenido h3 {
+            margin: 0 0 12px;
+            font-size: 22px;
+            color: #142b45;
+        }
+
+        #integrantes .perfil-carrera {
+            font-size: 16px;
+            font-weight: bold;
+            color: #075e68;
+        }
+
+        #integrantes .perfil-descripcion {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        #integrantes .perfil-correo {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #075e68;
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 650px) {
+            #integrantes .perfiles-equipo {
+                    grid-template-columns: 1fr;
+        }
+    }
     </style>
 </head>
 
