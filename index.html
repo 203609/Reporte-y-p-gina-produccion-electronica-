@@ -615,6 +615,151 @@
                     grid-template-columns: 1fr;
         }
     }
+    /* APARTADO MODS */
+        #mods .mods-introduccion {
+            margin: 24px 0;
+        }
+
+        #mods .mods-enlace {
+            display: inline-block;
+            padding: 11px 18px;
+            background: #087e8b;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #mods .mods-enlace:hover {
+            background: #075e68;
+        }
+
+        #mods .mods-etapa {
+            margin-top: 45px;
+            padding: 22px 24px;
+            background: #142b45;
+            color: white;
+            border-radius: 12px;
+            border-left: 6px solid #36c5d5;
+        }
+
+        #mods .mods-etapa strong {
+            display: block;
+            font-size: 24px;
+        }
+
+        #mods .mods-etapa p {
+            margin: 8px 0 0;
+            font-size: 16px;
+            color: #e0eaf4;
+        }
+
+        #mods .mods-etapa-orificios {
+            border-left-color: #e7ad65;
+        }
+
+        #mods .mods-captura {
+            margin: 26px auto;
+            padding: 14px;
+            background: white;
+            border: 1px solid #d7dfe7;
+            border-radius: 14px;
+            max-width: 760px;
+        }
+
+        #mods .mods-captura a {
+            display: block;
+        }
+
+        #mods .mods-captura img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 520px;
+            margin: auto;
+            border-radius: 6px;
+        }
+
+        #mods .mods-captura figcaption {
+            margin-top: 14px;
+            color: #465568;
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        #mods .mods-datos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 22px 0;
+        }
+
+        #mods .mods-datos span {
+            padding: 12px 16px;
+            background: #e5f2f4;
+            color: #075e68;
+            border: 1px solid #b8dce1;
+            border-radius: 8px;
+            font-size: 17px;
+        }
+
+        #mods .mods-tabla-contenedor {
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        #mods .mods-tabla {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            text-align: left;
+        }
+
+        #mods .mods-tabla caption {
+            padding-bottom: 14px;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            color: #142b45;
+        }
+
+        #mods .mods-tabla th,
+        #mods .mods-tabla td {
+            padding: 15px;
+            border-bottom: 1px solid #d7dfe7;
+            vertical-align: top;
+        }
+
+        #mods .mods-tabla th {
+            background: #142b45;
+            color: white;
+        }
+
+        #mods .mods-tabla tbody tr:nth-child(even) {
+            background: #edf3f8;
+        }
+
+        #mods code {
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 480px) {
+            #mods .mods-etapa {
+                padding: 20px;
+            }
+
+            #mods .mods-captura {
+                padding: 8px;
+            }
+
+            #mods .mods-tabla th,
+            #mods .mods-tabla td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
@@ -1828,48 +1973,726 @@
     hidden
 >
     <div class="titulo-seccion">
-        <span>Preparación para la fabricación</span>
-        <h2 id="titulo-mods" tabindex="-1">Mods</h2>
+        <span>Del diseño a los archivos de mecanizado</span>
+        <h2 id="titulo-mods" tabindex="-1">Mods CE</h2>
     </div>
 
+    <div class="mods-introduccion">
+        <p>
+            Después de diseñar nuestra placa en KiCad, utilizamos
+            Mods CE para preparar los archivos de mecanizado de
+            la Roland monoFab SRM-20. En esta etapa cargamos los
+            diseños, configuramos las herramientas y calculamos
+            las trayectorias que seguirá la máquina.
+        </p>
+
+        <p>
+            Organizamos el trabajo en tres archivos independientes:
+            el contorno exterior, las pistas y etiquetas, y los
+            orificios para los componentes. Cada operación utiliza
+            su propia configuración.
+        </p>
+
+        <a
+            class="mods-enlace"
+            href="https://modsproject.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Abrir Mods CE ↗
+        </a>
+    </div>
+
+    <!-- INICIO DEL PROGRAMA -->
     <section
-        id="mods-preparacion"
+        id="mods-programa"
         class="tema"
-        data-indice="1. Preparación de archivos"
+        data-indice="1. Abrir el programa"
     >
-        <h3 tabindex="-1">1. Preparación de archivos</h3>
+        <h3 tabindex="-1">1. Seleccionar el programa de trabajo</h3>
 
         <p>
-            Después de terminar el diseño de nuestra placa en KiCad,
-            continuaremos con la preparación de los archivos para
-            fabricar el circuito. En esta etapa utilizaremos Mods
-            para generar las trayectorias que seguirá la herramienta
-            de la CNC.
+            Entramos a Mods CE y abrimos el menú
+            <strong>Programs</strong>, ubicado en la esquina
+            superior izquierda. En el buscador escribimos
+            <strong>sr</strong> y localizamos la categoría
+            <strong>SRM-20 mill</strong>.
         </p>
 
         <p>
-            El diseño de la placa indica dónde deben quedar las pistas
-            y las conexiones. Para llevarlo a la fabricación, necesitamos
-            preparar las instrucciones de mecanizado de acuerdo con
-            la máquina y la herramienta que utilizaremos.
+            Dentro de esta categoría seleccionamos
+            <strong>mill 2D PCB</strong>. Se abre el conjunto de
+            módulos que utilizaremos para cargar los archivos
+            y preparar las operaciones de nuestra placa.
         </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-programa.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar selección del programa en Mods"
+            >
+                <img
+                    src="mods-programa.png"
+                    alt="Menú Programs con la opción mill 2D PCB de SRM-20 mill"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Selección del programa para preparar los archivos
+                de la SRM-20.
+            </figcaption>
+        </figure>
+    </section>
+
+    <div class="mods-etapa">
+        <strong>A. Preparación del contorno</strong>
+        <p>
+            Comenzamos con el archivo que define la forma exterior
+            de nuestra placa.
+        </p>
+    </div>
+
+    <!-- CONTORNO -->
+    <section
+        id="mods-cargar-contorno"
+        class="tema"
+        data-indice="2. Cargar el contorno"
+    >
+        <h3 tabindex="-1">2. Cargar el archivo del contorno</h3>
+
+        <p>
+            En el módulo <strong>read SVG</strong>, ubicado en
+            la parte superior izquierda, presionamos
+            <strong>select SVG file</strong> y seleccionamos
+            el archivo del contorno exportado desde KiCad.
+        </p>
+
+        <p>
+            En nuestro caso corresponde a la capa
+            <strong>Edge.Cuts</strong>. Después de cargarlo,
+            comprobamos que la figura aparezca completa y
+            revisamos sus dimensiones.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-cargar-contorno.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar carga del archivo SVG"
+            >
+                <img
+                    src="mods-cargar-contorno.png"
+                    alt="Módulo read SVG con el botón select SVG file señalado"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Carga del archivo SVG mediante select SVG file.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-herramienta-contorno"
+        class="tema"
+        data-indice="3. Herramienta del contorno"
+    >
+        <h3 tabindex="-1">3. Configurar la herramienta del contorno</h3>
+
+        <p>
+            Localizamos el módulo <strong>set PCB defaults</strong>
+            y cambiamos el selector de unidades a
+            <strong>mm</strong>. Dentro de la categoría
+            <strong>Cutout</strong>, seleccionamos
+            <strong>1.59 mm cutout</strong> como ajuste inicial.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-configuracion.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar ubicación de set PCB defaults"
+            >
+                <img
+                    src="mods-configuracion.png"
+                    alt="Vista de los módulos de Mods con set PCB defaults resaltado"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                En set PCB defaults seleccionamos las unidades
+                y el ajuste de la operación.
+            </figcaption>
+        </figure>
+
+        <p>
+            Después nos dirigimos a <strong>mill raster 2D</strong>.
+            En el procedimiento mostrado cambiamos
+            <strong>tool diameter</strong>, en milímetros,
+            a <strong>1.9</strong>.
+        </p>
+
+        <div class="mods-datos">
+            <span>Ajuste inicial: <strong>1.59 mm cutout</strong></span>
+            <span>Diámetro configurado: <strong>1.9 mm</strong></span>
+        </div>
 
         <div class="nota">
-            <strong>¿Qué documentaremos en esta sección?</strong>
+            <strong>El diámetro final es el que cuenta</strong>
             <p>
-                Explicaremos paso a paso cómo preparamos y cargamos
-                los archivos, qué parámetros configuramos, cómo
-                revisamos las trayectorias y cómo guardamos el
-                resultado para enviarlo a la CNC.
+                Al modificar tool diameter, el cálculo utiliza
+                1.9 mm como diámetro de herramienta. Este valor
+                debe corresponder con la herramienta que se montará
+                en la máquina; seleccionar primero 1.59 mm cutout
+                no mantiene ese diámetro después de cambiarlo.
             </p>
         </div>
 
+        <figure class="mods-captura">
+            <a
+                href="mods-diametro-contorno.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar diámetro y botón calculate"
+            >
+                <img
+                    src="mods-diametro-contorno.png"
+                    alt="Módulo mill raster 2D con tool diameter en 1.9 mm"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Diámetro configurado en nuestro procedimiento
+                y ubicación del botón calculate.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-calcular-contorno"
+        class="tema"
+        data-indice="4. Revisar el contorno"
+    >
+        <h3 tabindex="-1">4. Calcular y revisar el contorno</h3>
+
         <p>
-            Conforme avancemos, agregaremos las capturas de nuestro
-            procedimiento y los valores que utilicemos, para que se
-            pueda seguir el proceso desde el diseño hasta la
-            preparación del mecanizado.
+            Presionamos <strong>calculate</strong> en
+            <strong>mill raster 2D</strong> para generar las
+            trayectorias. Revisamos la vista previa y comprobamos
+            que el recorrido siga la forma exterior de nuestra placa.
         </p>
+
+        <p>
+            La simulación nos permite observar el resultado previsto
+            del mecanizado. Revisamos que el contorno esté completo
+            y que no aparezcan recorridos inesperados.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-preview-contorno.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar simulación del contorno"
+            >
+                <img
+                    src="mods-preview-contorno.png"
+                    alt="Simulación del mecanizado del borde exterior de la placa"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Vista previa del corte del contorno.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-origen-contorno"
+        class="tema"
+        data-indice="5. Configurar el origen"
+    >
+        <h3 tabindex="-1">5. Establecer el origen del archivo</h3>
+
+        <p>
+            En el módulo
+            <strong>Roland SRM-20 milling machine</strong>,
+            localizamos el apartado <strong>origin</strong>
+            y establecemos sus tres coordenadas en cero.
+        </p>
+
+        <div class="mods-datos">
+            <span>X: <strong>0 mm</strong></span>
+            <span>Y: <strong>0 mm</strong></span>
+            <span>Z: <strong>0 mm</strong></span>
+        </div>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-origen.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar coordenadas del origen"
+            >
+                <img
+                    src="mods-origen.png"
+                    alt="Campos origin X, Y y Z configurados en cero"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Coordenadas del origen configuradas en Mods.
+            </figcaption>
+        </figure>
+
+        <div class="nota">
+            <strong>Origen del archivo y origen de la máquina</strong>
+            <p>
+                Estos campos configuran el origen en Mods.
+                Posteriormente también estableceremos el origen
+                de trabajo en la máquina. En este paso modificamos
+                origin, conservando los campos home y jog height.
+            </p>
+        </div>
+    </section>
+
+    <section
+        id="mods-guardar-contorno"
+        class="tema"
+        data-indice="6. Guardar el contorno"
+    >
+        <h3 tabindex="-1">6. Guardar el archivo del contorno</h3>
+
+        <p>
+            Con la configuración final revisada, nos desplazamos
+            al módulo <strong>save file</strong>, ubicado a la derecha.
+            Cuando el archivo esté disponible, presionamos
+            <strong>save file</strong> para descargarlo en formato
+            <strong>.rml</strong>.
+        </p>
+
+        <p>
+            Podemos identificarlo como <code>contorno.rml</code>
+            para distinguirlo de las demás operaciones.
+            Antes de refrescar la página, comprobamos que la
+            descarga haya terminado.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-guardar.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar botón para guardar el archivo"
+            >
+                <img
+                    src="mods-guardar.png"
+                    alt="Módulo save file con el botón de descarga señalado"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Descarga del archivo de mecanizado.
+            </figcaption>
+        </figure>
+    </section>
+
+    <div class="mods-etapa">
+        <strong>B. Preparación de pistas y etiquetas</strong>
+        <p>
+            Preparamos un segundo archivo con la configuración
+            correspondiente al mecanizado de las pistas.
+        </p>
+    </div>
+
+    <!-- PISTAS -->
+    <section
+        id="mods-cargar-pistas"
+        class="tema"
+        data-indice="7. Cargar e invertir las pistas"
+    >
+        <h3 tabindex="-1">7. Cargar las pistas e invertir la imagen</h3>
+
+        <p>
+            Después de guardar el contorno, refrescamos la página
+            y volvemos a seleccionar
+            <strong>SRM-20 mill → mill 2D PCB</strong>.
+            En <strong>read SVG</strong> cargamos el archivo
+            de las pistas y etiquetas.
+        </p>
+
+        <p>
+            En el módulo <strong>convert SVG image</strong>,
+            ubicado a su derecha, presionamos <strong>invert</strong>.
+            Para nuestro archivo, este paso intercambia las zonas
+            blancas y negras y deja la imagen que utilizaremos
+            para calcular las trayectorias.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-invertir-pistas.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar inversión de la imagen de pistas"
+            >
+                <img
+                    src="mods-invertir-pistas.png"
+                    alt="Archivo de pistas cargado y botón invert señalado en convert SVG image"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Preparación de la imagen de pistas mediante invert.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-herramienta-pistas"
+        class="tema"
+        data-indice="8. Herramienta de las pistas"
+    >
+        <h3 tabindex="-1">8. Seleccionar la herramienta para las pistas</h3>
+
+        <p>
+            En <strong>set PCB defaults</strong>, seleccionamos
+            las unidades en milímetros y elegimos
+            <strong>0.40 mm flat</strong>, dentro de
+            <strong>Traces</strong>.
+        </p>
+
+        <p>
+            Esta configuración corresponde a una herramienta plana
+            de aproximadamente 0.40 mm. En nuestra captura,
+            el campo <strong>tool diameter</strong> muestra
+            <strong>0.39624 mm</strong>; conservamos el valor
+            establecido por el ajuste.
+        </p>
+
+        <div class="mods-datos">
+            <span>Operación: <strong>Traces</strong></span>
+            <span>Ajuste: <strong>0.40 mm flat</strong></span>
+        </div>
+    </section>
+
+    <section
+        id="mods-offset-pistas"
+        class="tema"
+        data-indice="9. Ajustar los recorridos"
+    >
+        <h3 tabindex="-1">9. Cambiar el número de recorridos</h3>
+
+        <p>
+            En <strong>mill raster 2D</strong>, localizamos
+            <strong>offset number</strong> y cambiamos su valor
+            de <strong>4 a 2</strong>.
+        </p>
+
+        <p>
+            Con este ajuste solicitamos dos recorridos laterales
+            alrededor de los bordes detectados para retirar
+            material junto a las pistas. Este valor corresponde
+            al número de recorridos laterales, no a la profundidad
+            de corte.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-offset-pistas.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar ajuste de offset number"
+            >
+                <img
+                    src="mods-offset-pistas.png"
+                    alt="Campo offset number configurado en 2"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Ajuste de offset number para las pistas.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-calcular-pistas"
+        class="tema"
+        data-indice="10. Calcular las pistas"
+    >
+        <h3 tabindex="-1">10. Configurar el origen y revisar las pistas</h3>
+
+        <p>
+            En <strong>Roland SRM-20 milling machine</strong>,
+            establecemos nuevamente <strong>origin X, Y y Z
+            en 0 mm</strong>.
+        </p>
+
+        <p>
+            Regresamos a <strong>mill raster 2D</strong> y
+            presionamos <strong>calculate</strong>.
+            Revisamos que en la simulación aparezcan las pistas
+            y etiquetas completas y que las trayectorias
+            correspondan con nuestro diseño.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-preview-pistas.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar simulación de las pistas"
+            >
+                <img
+                    src="mods-preview-pistas.png"
+                    alt="Simulación del mecanizado de las pistas y etiquetas de la placa"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Vista previa de las trayectorias de las pistas.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-guardar-pistas"
+        class="tema"
+        data-indice="11. Guardar las pistas"
+    >
+        <h3 tabindex="-1">11. Guardar el archivo de las pistas</h3>
+
+        <p>
+            Después de revisar las trayectorias, utilizamos
+            el módulo <strong>save file</strong> para descargar
+            el segundo archivo <strong>.rml</strong>.
+        </p>
+
+        <div class="nota">
+            <strong>Nombre sugerido: pistas.rml</strong>
+            <p>
+                Guardamos esta operación en un archivo diferente
+                al del contorno, ya que utiliza otra herramienta
+                y otra configuración de mecanizado.
+            </p>
+        </div>
+    </section>
+
+    <div class="mods-etapa mods-etapa-orificios">
+        <strong>C. Preparación de los orificios</strong>
+        <p>
+            Generamos el tercer archivo para las perforaciones
+            donde se colocarán los componentes.
+        </p>
+    </div>
+
+    <!-- ORIFICIOS -->
+    <section
+        id="mods-cargar-orificios"
+        class="tema"
+        data-indice="12. Cargar los orificios"
+    >
+        <h3 tabindex="-1">12. Cargar el archivo de las perforaciones</h3>
+
+        <p>
+            Con el archivo de pistas guardado, cargamos el SVG
+            de los orificios mediante
+            <strong>read SVG → select SVG file</strong>.
+        </p>
+
+        <p>
+            Revisamos que la vista previa muestre las perforaciones
+            previstas para los componentes. En nuestra captura,
+            estas aparecen como pequeños puntos sobre el fondo
+            blanco.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-cargar-orificios.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar archivo de orificios"
+            >
+                <img
+                    src="mods-cargar-orificios.png"
+                    alt="Archivo SVG de los orificios cargado en read SVG"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Vista previa de los orificios de la placa.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-herramienta-orificios"
+        class="tema"
+        data-indice="13. Seleccionar la broca"
+    >
+        <h3 tabindex="-1">13. Seleccionar la configuración de perforación</h3>
+
+        <p>
+            En <strong>set PCB defaults</strong>, con las unidades
+            en milímetros, seleccionamos
+            <strong>0.79 mm drill</strong> dentro de
+            la categoría <strong>Drill</strong>.
+        </p>
+
+        <p>
+            Para este procedimiento conservamos los valores
+            que establece esta opción en
+            <strong>mill raster 2D</strong>, sin modificarlos
+            manualmente.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-drill.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar selección de 0.79 mm drill"
+            >
+                <img
+                    src="mods-drill.png"
+                    alt="Opción 0.79 mm drill resaltada en set PCB defaults"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Ajuste seleccionado para las perforaciones.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-velocidad-orificios"
+        class="tema"
+        data-indice="14. Origen y velocidad"
+    >
+        <h3 tabindex="-1">14. Ajustar el origen y la velocidad</h3>
+
+        <p>
+            En <strong>Roland SRM-20 milling machine</strong>,
+            configuramos las coordenadas de
+            <strong>origin</strong> en cero y cambiamos
+            <strong>speed</strong> a <strong>0.3 mm/s</strong>.
+        </p>
+
+        <div class="mods-datos">
+            <span>X: <strong>0 mm</strong></span>
+            <span>Y: <strong>0 mm</strong></span>
+            <span>Z: <strong>0 mm</strong></span>
+            <span>Speed: <strong>0.3 mm/s</strong></span>
+        </div>
+
+        <p>
+            La unidad mm/s significa
+            <strong>milímetros por segundo</strong>.
+            Este es el valor de velocidad de avance utilizado
+            en nuestro procedimiento para preparar el archivo
+            de los orificios.
+        </p>
+
+        <figure class="mods-captura">
+            <a
+                href="mods-velocidad-orificios.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ampliar velocidad y origen de los orificios"
+            >
+                <img
+                    src="mods-velocidad-orificios.png"
+                    alt="Speed configurado en 0.3 mm/s y origen X, Y y Z en cero"
+                    loading="lazy"
+                >
+            </a>
+            <figcaption>
+                Configuración del origen y de la velocidad
+                para las perforaciones.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section
+        id="mods-archivos-finales"
+        class="tema"
+        data-indice="15. Guardar y organizar"
+    >
+        <h3 tabindex="-1">15. Calcular, guardar y organizar los archivos</h3>
+
+        <p>
+            Regresamos a <strong>mill raster 2D</strong> y
+            presionamos <strong>calculate</strong>.
+            Revisamos las trayectorias de las perforaciones
+            y descargamos el resultado mediante
+            <strong>save file</strong>.
+        </p>
+
+        <p>
+            Podemos nombrar este tercer archivo
+            <code>orificios.rml</code>. Al terminar, contamos
+            con los tres archivos de mecanizado organizados
+            por operación.
+        </p>
+
+        <div class="mods-tabla-contenedor">
+            <table class="mods-tabla">
+                <caption>Archivos preparados en Mods CE</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre sugerido</th>
+                        <th scope="col">Operación</th>
+                        <th scope="col">Configuración documentada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>contorno.rml</code></td>
+                        <td>Recorte del borde exterior.</td>
+                        <td>
+                            1.59 mm cutout como ajuste inicial;
+                            tool diameter modificado a 1.9 mm.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>pistas.rml</code></td>
+                        <td>Mecanizado de pistas y etiquetas.</td>
+                        <td>
+                            0.40 mm flat;
+                            offset number en 2.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>orificios.rml</code></td>
+                        <td>Perforaciones para componentes.</td>
+                        <td>
+                            0.79 mm drill;
+                            speed en 0.3 mm/s.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="nota">
+            <strong>Siguiente etapa: preparación de la monoFab</strong>
+            <p>
+                Con los archivos preparados, continuaremos con
+                la colocación del material, la selección de
+                herramientas y la configuración del origen
+                de trabajo en la máquina. Los valores documentados
+                aquí corresponden a nuestro procedimiento y deben
+                comprobarse con las herramientas y el material
+                que utilizaremos.
+            </p>
+        </div>
     </section>
 </section>
 
