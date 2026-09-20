@@ -6,451 +6,560 @@
     <title>Producción Electrónica</title>
 
     <style>
+        :root {
+            --azul: #142b45;
+            --acento: #087e8b;
+            --fondo: #f3f5f7;
+            --texto: #182536;
+            --borde: #d7dfe7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f3f5f7;
-            color: #182536;
+            background: var(--fondo);
+            color: var(--texto);
+            line-height: 1.6;
         }
 
-        header {
-            background-color: #142b45;
+        [hidden] {
+            display: none !important;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--acento);
+            outline-offset: 4px;
+        }
+
+        .portada {
+            background: var(--azul);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 48px 24px;
         }
 
-        h1 {
-            margin: 0;
-            font-size: clamp(28px, 5vw, 42px);
+        .portada h1 {
+            max-width: 950px;
+            margin: 0 auto;
+            font-size: clamp(28px, 4vw, 44px);
+            line-height: 1.2;
+        }
+
+        .portada p {
+            max-width: 760px;
+            margin: 20px auto 0;
+            color: #e0eaf4;
+            font-size: 18px;
+        }
+
+        .estructura {
+            display: grid;
+            grid-template-columns: 190px minmax(0, 850px) 220px;
+            justify-content: center;
+            align-items: start;
+            gap: 28px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 32px 24px 60px;
+        }
+
+        .menu-secciones,
+        .indice {
+            position: sticky;
+            top: 24px;
+            padding: 20px 14px;
+            background: white;
+            border: 1px solid var(--borde);
+            border-radius: 14px;
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+        }
+
+        .menu-secciones h2,
+        .indice h2 {
+            margin: 0 8px 16px;
+            color: #526175;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .menu-secciones nav {
+            display: grid;
+            gap: 8px;
+        }
+
+        .boton-seccion {
+            width: 100%;
+            padding: 13px 14px;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--azul);
+            font: inherit;
+            font-weight: bold;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .boton-seccion:hover {
+            background: #edf3f8;
+        }
+
+        .boton-seccion[aria-pressed="true"] {
+            background: var(--azul);
+            color: white;
         }
 
         main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: center;
+            min-width: 0;
         }
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
+        .equipo {
+            text-align: center;
+            padding-bottom: 36px;
+        }
+
+        .equipo h2 {
+            margin-top: 0;
+            font-size: 26px;
         }
 
         .integrantes {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+            gap: 24px;
         }
 
         .integrante {
-            margin: 0;
-            width: 280px;
+            width: 240px;
             max-width: 100%;
+            margin: 0;
         }
 
         .integrante img {
             display: block;
             width: 100%;
-            height: 350px;
+            height: 300px;
             object-fit: cover;
-            object-position: center;
             border-radius: 12px;
         }
 
         .integrante figcaption {
-            margin-top: 16px;
-            font-size: 20px;
+            margin-top: 12px;
+            font-size: 18px;
             font-weight: bold;
-            line-height: 1.5;
+        }
+
+        .panel {
+            scroll-margin-top: 24px;
+        }
+
+        .titulo-seccion {
+            padding: 24px;
+            border-radius: 12px;
+            background: var(--azul);
+            color: white;
+        }
+
+        .titulo-seccion span {
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #c8e9ed;
+        }
+
+        .titulo-seccion h2 {
+            margin: 4px 0 0;
+            font-size: 32px;
         }
 
         .tema {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 2px solid #142b45;
-            text-align: left;
+            margin-top: 42px;
+            padding-top: 24px;
+            border-top: 2px solid var(--borde);
+            scroll-margin-top: 24px;
         }
 
-        .tema h2 {
-            color: #142b45;
+        .tema h3 {
+            margin: 0 0 20px;
+            color: var(--azul);
             font-size: 26px;
+            line-height: 1.3;
         }
 
-        .tema p {
+        .tema h4 {
+            margin: 26px 0 12px;
+            color: var(--azul);
+            font-size: 21px;
+        }
+
+        p {
+            font-size: 18px;
             line-height: 1.8;
+        }
+
+        figure {
+            min-width: 0;
         }
 
         .imagen-avance {
             max-width: 650px;
             margin: 28px auto;
-            text-align: center;
+            padding: 12px;
+            background: white;
+            border: 1px solid var(--borde);
+            border-radius: 12px;
         }
 
-        .imagen-avance img {
+        .imagen-avance a,
+        .captura a {
+            display: block;
+        }
+
+        .imagen-avance img,
+        .captura img {
             display: block;
             width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 6px;
         }
 
-        .imagen-avance figcaption {
-            margin-top: 10px;
-            font-size: 16px;
-            line-height: 1.5;
+        .imagen-avance figcaption,
+        .captura figcaption {
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.6;
             color: #465568;
+            text-align: center;
         }
+
+        .indice ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .indice li + li {
+            margin-top: 7px;
+        }
+
+        .indice a {
+            display: block;
+            padding: 10px;
+            border-left: 3px solid transparent;
+            border-radius: 0 6px 6px 0;
+            color: #465568;
+            font-size: 15px;
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .indice a:hover {
+            background: #edf3f8;
+            color: var(--azul);
+        }
+
+        .indice a[aria-current="location"] {
+            border-left-color: var(--acento);
+            background: #e5f2f4;
+            color: #075e68;
+            font-weight: bold;
+        }
+
+        .indice-vacio {
+            margin: 8px;
+            font-size: 15px;
+            color: #526175;
+        }
+
         .parametros {
-    border-top: 4px solid #087e8b;
-}
+            border-top-color: var(--acento);
+        }
 
-.parametros h3 {
-    color: #142b45;
-    font-size: 22px;
-    margin-top: 28px;
-}
+        .medidas-pistas {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 28px 0;
+        }
 
-.medidas-pistas {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-    margin: 30px 0;
-}
+        .medida {
+            padding: 24px;
+            border-radius: 12px;
+            background: var(--azul);
+            color: white;
+        }
 
-.medida {
-    padding: 24px;
-    border-radius: 14px;
-    background-color: #142b45;
-    color: white;
-}
+        .medida:nth-child(2) {
+            background: #086875;
+        }
 
-.medida:nth-child(2) {
-    background-color: #086875;
-}
+        .medida span {
+            display: block;
+            font-size: 16px;
+        }
 
-.medida-etiqueta {
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-}
+        .medida strong {
+            display: block;
+            margin: 8px 0;
+            font-size: clamp(34px, 5vw, 46px);
+        }
 
-.medida strong {
-    display: block;
-    margin: 12px 0;
-    font-size: clamp(36px, 6vw, 48px);
-}
+        .medida small {
+            font-size: 22px;
+            font-weight: normal;
+        }
 
-.medida small {
-    font-size: 22px;
-    font-weight: normal;
-}
+        .dos-columnas {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin: 28px 0;
+        }
 
-.medida > span:last-child {
-    display: block;
-    font-size: 16px;
-    line-height: 1.5;
-}
+        .dos-columnas h4 {
+            margin-top: 0;
+        }
 
-.detalle-pistas {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 28px;
-    align-items: start;
-    margin: 32px 0;
-}
+        .captura {
+            margin: 0;
+            padding: 12px;
+            border: 1px solid var(--borde);
+            border-radius: 12px;
+            background: white;
+        }
 
-.captura-pistas {
-    margin: 0;
-    padding: 12px;
-    background-color: white;
-    border: 1px solid #cbd5df;
-    border-radius: 12px;
-}
+        .nota {
+            padding: 22px;
+            margin: 26px 0;
+            background: #e5f2f4;
+            border-left: 4px solid var(--acento);
+            border-radius: 0 10px 10px 0;
+        }
 
-.captura-pistas a {
-    display: block;
-    border-radius: 6px;
-}
+        .nota strong {
+            font-size: 18px;
+        }
 
-.captura-pistas a:focus-visible {
-    outline: 3px solid #087e8b;
-    outline-offset: 4px;
-}
+        .nota p {
+            margin-bottom: 0;
+            font-size: 16px;
+        }
 
-.captura-pistas img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
+        .conexiones {
+            border-top: 0;
+            padding-top: 0;
+        }
 
-.captura-pistas figcaption {
-    margin-top: 12px;
-    color: #465568;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: center;
-}
+        .conexiones-cabecera {
+            padding: 26px;
+            background: var(--azul);
+            color: white;
+            border-left: 6px solid #36c5d5;
+            border-radius: 12px;
+        }
 
-.explicacion-pistas h3 {
-    margin-top: 0;
-}
+        .conexiones-cabecera h3 {
+            color: white;
+        }
 
-.explicacion-pistas p {
-    font-size: 16px;
-}
+        .etiqueta-ancho {
+            display: inline-block;
+            padding: 7px 12px;
+            background: #d9f6fa;
+            color: var(--azul);
+            border-radius: 6px;
+            font-weight: bold;
+        }
 
-.nota-parametros {
-    margin-top: 28px;
-    padding: 22px;
-    border-left: 5px solid #087e8b;
-    background-color: #e5f2f4;
-    border-radius: 0 10px 10px 0;
-}
+        .pasos {
+            padding-left: 28px;
+        }
 
-.nota-parametros strong {
-    color: #142b45;
-    font-size: 18px;
-}
+        .pasos li {
+            margin-bottom: 22px;
+            padding: 0 0 18px 10px;
+            border-bottom: 1px solid var(--borde);
+        }
 
-.nota-parametros p {
-    margin-bottom: 0;
-    font-size: 16px;
-}
+        .pasos li::marker {
+            color: var(--acento);
+            font-size: 22px;
+            font-weight: bold;
+        }
 
-@media (max-width: 600px) {
-    .medidas-pistas,
-    .detalle-pistas {
-        grid-template-columns: 1fr;
-    }
-}
-.conexiones {
-    border-top: none;
-    padding-top: 0;
-}
+        .pasos strong {
+            font-size: 20px;
+        }
 
-.conexiones-cabecera {
-    padding: 28px;
-    background-color: #142b45;
-    border-left: 6px solid #36c5d5;
-    border-radius: 12px;
-    color: white;
-}
+        .pasos p {
+            margin: 8px 0 0;
+        }
 
-.conexiones .conexiones-cabecera h2 {
-    margin: 0;
-    color: white;
-}
+        .zonas-cobre {
+            border-top: 4px solid #a84b1b;
+        }
 
-.conexiones-cabecera p {
-    margin: 12px 0 20px;
-}
+        .zonas-subtitulo {
+            display: block;
+            margin-bottom: 10px;
+            color: #873b16;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+        }
 
-.ancho-conexion {
-    display: inline-block;
-    padding: 8px 14px;
-    background-color: #d9f6fa;
-    color: #142b45;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-}
+        .zonas-cobre h4 {
+            color: #873b16;
+        }
 
-.conexiones-imagen {
-    margin: 30px 0;
-    padding: 12px;
-    background-color: white;
-    border: 1px solid #cbd5df;
-    border-radius: 12px;
-}
+        .zonas-dato {
+            padding: 18px;
+            border-left: 4px solid #a84b1b;
+            background: #fff0e6;
+        }
 
-.conexiones-imagen a {
-    display: block;
-}
+        .zonas-dato dt {
+            color: #873b16;
+            font-weight: bold;
+        }
 
-.conexiones-imagen a:focus-visible {
-    outline: 3px solid #087e8b;
-    outline-offset: 4px;
-}
+        .zonas-dato dd {
+            margin: 4px 0 14px;
+        }
 
-.conexiones-imagen img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
+        .zonas-dato dd:last-child {
+            margin-bottom: 0;
+        }
 
-.conexiones-imagen figcaption {
-    padding: 14px 6px 4px;
-    color: #465568;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: center;
-}
+        .nota-cobre {
+            background: #fff0e6;
+            border-left-color: #a84b1b;
+        }
 
-.conexiones h3 {
-    margin-top: 32px;
-    color: #142b45;
-    font-size: 22px;
-}
+        .pendiente {
+            margin-top: 24px;
+            padding: 28px;
+            background: white;
+            border: 1px dashed #9caebe;
+            border-radius: 12px;
+        }
 
-.conexiones-pasos {
-    padding-left: 28px;
-    margin: 24px 0;
-}
+        .pendiente h3 {
+            margin-top: 0;
+            color: var(--azul);
+        }
 
-.conexiones-pasos li {
-    padding: 0 0 20px 12px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #cbd5df;
-}
+        .pendiente p {
+            margin-bottom: 0;
+        }
 
-.conexiones-pasos li::marker {
-    color: #087e8b;
-    font-size: 22px;
-    font-weight: bold;
-}
+        footer {
+            padding: 24px;
+            text-align: center;
+            color: #526175;
+            border-top: 1px solid var(--borde);
+            font-size: 14px;
+        }
 
-.conexiones-pasos strong {
-    color: #142b45;
-    font-size: 20px;
-}
+        @media (max-width: 1100px) {
+            .estructura {
+                grid-template-columns: 155px minmax(0, 1fr) 180px;
+                gap: 18px;
+                padding-right: 18px;
+                padding-left: 18px;
+            }
 
-.conexiones-pasos p {
-    margin: 10px 0 0;
-}
+            .dos-columnas {
+                grid-template-columns: 1fr;
+            }
+        }
 
-.conexiones-cierre {
-    padding: 24px;
-    background-color: #e5f2f4;
-    border-radius: 12px;
-}
+        @media (max-width: 850px) {
+            .estructura {
+                grid-template-columns: minmax(0, 1fr);
+            }
 
-.conexiones-cierre strong {
-    color: #142b45;
-    font-size: 20px;
-}
+            .menu-secciones,
+            .indice {
+                position: static;
+                max-height: none;
+            }
 
-.conexiones-cierre p {
-    margin-bottom: 0;
-}
-.zonas-cobre {
-    border-top: 4px solid #a84b1b;
-}
+            .menu-secciones {
+                grid-row: 1;
+            }
 
-.zonas-titulo {
-    padding: 0;
-    background: transparent;
-    color: #182536;
-    text-align: left;
-}
+            .indice {
+                grid-row: 2;
+            }
 
-.zonas-titulo > span {
-    color: #873b16;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 0.08em;
-}
+            main {
+                grid-row: 3;
+            }
 
-.zonas-titulo h2 {
-    margin-top: 10px;
-}
+            .menu-secciones nav {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
 
-.zonas-contenido {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 28px;
-    align-items: start;
-    margin: 30px 0;
-}
+            .boton-seccion {
+                text-align: center;
+                padding: 12px 6px;
+            }
 
-.zonas-cobre h3 {
-    color: #873b16;
-    font-size: 22px;
-}
+            .indice ol {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
 
-.zonas-texto h3 {
-    margin-top: 0;
-}
+            .indice li + li {
+                margin-top: 0;
+            }
+        }
 
-.zonas-dato {
-    display: grid;
-    gap: 8px;
-    padding: 20px;
-    border-left: 4px solid #a84b1b;
-    background-color: #fff0e6;
-    font-size: 16px;
-    line-height: 1.5;
-}
+        @media (max-width: 480px) {
+            .medidas-pistas {
+                grid-template-columns: 1fr;
+            }
 
-.zonas-dato strong {
-    color: #873b16;
-}
+            .portada {
+                padding: 36px 18px;
+            }
 
-.zonas-dato span + strong {
-    margin-top: 12px;
-}
+            .estructura {
+                padding-right: 14px;
+                padding-left: 14px;
+            }
+        }
 
-.zonas-captura {
-    margin: 0;
-    padding: 12px;
-    background-color: white;
-    border: 1px solid #d8c5b9;
-    border-radius: 12px;
-}
-
-.zonas-captura a {
-    display: block;
-}
-
-.zonas-captura a:focus-visible {
-    outline: 3px solid #a84b1b;
-    outline-offset: 4px;
-}
-
-.zonas-captura img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
-
-.zonas-captura figcaption {
-    margin-top: 12px;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: center;
-    color: #465568;
-}
-
-.zonas-fabricacion {
-    padding: 24px;
-    margin: 28px 0;
-    border: 1px solid #a84b1b;
-    border-radius: 12px;
-    background-color: #fffaf6;
-}
-
-.zonas-fabricacion h3 {
-    margin-top: 0;
-}
-
-.zonas-fabricacion p {
-    margin-bottom: 0;
-}
-
-@media (max-width: 650px) {
-    .zonas-contenido {
-        grid-template-columns: 1fr;
-    }
-}
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <header>
+    <header class="portada">
         <h1>Producción Electrónica: avances de la materia</h1>
         <p>
             Aquí vamos a reportar paso a paso lo que es nuestra placa,
@@ -458,467 +567,859 @@
         </p>
     </header>
 
-    <main>
-        <h2>Integrantes del equipo</h2>
+    <div class="estructura">
 
-        <div class="integrantes">
-            <figure class="integrante">
-                <img
-                    src="jose.jpg.jpeg"
-                    alt="José Manuel Góngora Compeán"
+        <!-- MENÚ IZQUIERDO -->
+        <aside class="menu-secciones">
+            <h2>Secciones</h2>
+
+            <nav aria-label="Secciones del proyecto">
+                <button
+                    type="button"
+                    class="boton-seccion"
+                    data-panel="kicad"
+                    aria-controls="kicad"
+                    aria-pressed="true"
                 >
-                <figcaption>
-                    José Manuel Góngora Compeán
-                </figcaption>
-            </figure>
+                    KiCad
+                </button>
 
-            <figure class="integrante">
-                <img
-                    src="rodrigo.jpg.jpeg"
-                    alt="Rodrigo Cermeño"
+                <button
+                    type="button"
+                    class="boton-seccion"
+                    data-panel="monofab"
+                    aria-controls="monofab"
+                    aria-pressed="false"
                 >
-                <figcaption>Rodrigo Cermeño</figcaption>
-            </figure>
-        </div>
+                    Monofab
+                </button>
 
-        <section class="tema">
-            <h2>1. Producción electrónica</h2>
-
-            <p>
-                La producción electrónica es el proceso de diseñar,
-                fabricar, ensamblar y verificar dispositivos y circuitos
-                electrónicos. Su objetivo es transformar un diseño en
-                un producto funcional que cumpla con los requisitos de
-                calidad y funcionamiento.
-            </p>
-
-            <p>
-                En una placa de circuito impreso (PCB), este proceso
-                incluye elaborar el diagrama del circuito, seleccionar
-                los componentes, diseñar las pistas y fabricar la placa.
-                Después, se colocan y sueldan los componentes y se
-                realizan pruebas para comprobar que las conexiones y
-                el circuito funcionen correctamente.
-            </p>
-
-            <p>
-                A lo largo de esta materia documentaremos la creación
-                de nuestra placa, desde el diseño inicial hasta su
-                ensamblaje y pruebas, mostrando los avances y las
-                dificultades de cada etapa.
-            </p>
-        </section>
-
-        <section class="tema">
-            <h2>2. Programa KiCad</h2>
-
-            <p>
-                El programa que estamos utilizando para desarrollar nuestra
-                placa de circuito impreso es KiCad. Con este software podemos
-                elaborar el diagrama esquemático, seleccionar las huellas de
-                los componentes y diseñar la distribución de nuestra placa.
-            </p>
-
-            <p>
-                Para comenzar, descargamos e instalamos KiCad en nuestro
-                equipo. Este es el primer paso para contar con las herramientas
-                necesarias y empezar a trabajar en el proyecto.
-            </p>
-
-            <figure class="imagen-avance">
-                <img
-                    src="KICAD.jpeg"
-                    alt="Descarga del programa KiCad"
-                    loading="lazy"
+                <button
+                    type="button"
+                    class="boton-seccion"
+                    data-panel="cnc"
+                    aria-controls="cnc"
+                    aria-pressed="false"
                 >
-                <figcaption>Descarga del programa KiCad.</figcaption>
-            </figure>
+                    CNC
+                </button>
+            </nav>
+        </aside>
 
-            <p>
-                Desde la interfaz de KiCad podemos crear y organizar nuestro
-                proyecto, abrir el editor de esquemáticos y acceder al editor
-                de placas de circuito impreso. Estas herramientas nos permiten
-                pasar de las conexiones eléctricas del circuito a su
-                distribución física en la placa.
-            </p>
+        <!-- CONTENIDO CENTRAL -->
+        <main>
+            <section class="equipo" aria-labelledby="titulo-equipo">
+                <h2 id="titulo-equipo">Integrantes del equipo</h2>
 
-            <figure class="imagen-avance">
-                <img
-                    src="inicio%20de%20kicad.jpeg"
-                    alt="Interfaz del programa KiCad"
-                    loading="lazy"
-                >
-                <figcaption>Interfaz del programa KiCad.</figcaption>
-            </figure>
+                <div class="integrantes">
+                    <figure class="integrante">
+                        <img
+                            src="jose.jpg.jpeg"
+                            alt="José Manuel Góngora Compeán"
+                        >
+                        <figcaption>
+                            José Manuel Góngora Compeán
+                        </figcaption>
+                    </figure>
 
-            <p>
-                Durante el diseño podemos definir las dimensiones de la placa,
-                el ancho de las pistas, la separación entre conexiones y el
-                tamaño de las perforaciones. Ajustaremos estos parámetros
-                conforme a las capacidades de la máquina CNC ________,
-                ya que con este equipo vamos a fabricar nuestra placa.
-            </p>
+                    <figure class="integrante">
+                        <img
+                            src="rodrigo.jpg.jpeg"
+                            alt="Rodrigo Cermeño"
+                        >
+                        <figcaption>Rodrigo Cermeño</figcaption>
+                    </figure>
+                </div>
+            </section>
 
-            <p>
-                KiCad también cuenta con herramientas de revisión que ayudan
-                a identificar posibles errores de conexión y verificar las
-                reglas de diseño. Además, permite visualizar la placa en 3D
-                para revisar la distribución de los componentes antes de
-                pasar a la fabricación.
-            </p>
-        </section>
-
-        <section class="tema">
-            <h2>3. Elaboración del esquemático</h2>
-
-            <p>
-                Iniciamos armando el circuito en el editor de esquemáticos
-                de KiCad. Colocamos algunas resistencias e interruptores
-                (switches), representados mediante sus símbolos eléctricos,
-                y realizamos las conexiones necesarias entre los componentes
-                para armar nuestro circuito.
-            </p>
-
-            <figure class="imagen-avance">
-                <img
-                    src="esquematico.jpeg"
-                    alt="Esquemático de nuestro circuito en KiCad"
-                    loading="lazy"
-                >
-                <figcaption>
-                    Elaboración del esquemático del circuito.
-                </figcaption>
-            </figure>
-
-            <p>
-                El esquemático es importante porque sirve como guía para
-                diseñar la placa de circuito impreso. Por esta razón lo
-                elaboramos primero: nos permite identificar los componentes,
-                entender cómo se conectan y revisar las conexiones antes
-                de trabajar en la distribución física de la placa.
-            </p>
-
-            <p>
-                Después asignamos a cada componente su huella, que representa
-                el espacio y los puntos de conexión que ocupará en la PCB.
-                La huella debe coincidir con las dimensiones y la posición
-                de las terminales del componente que utilizaremos.
-            </p>
-
-            <figure class="imagen-avance">
-                <img
-                    src="huella.jpeg"
-                    alt="Huella de un componente en KiCad"
-                    loading="lazy"
-                >
-                <figcaption>
-                    Asignación de la huella de un componente.
-                </figcaption>
-            </figure>
-
-            <p>
-                Una vez definidos el esquemático y las huellas, podemos
-                continuar en el editor de PCB. Ahí acomodamos los componentes
-                y trazamos las pistas que los conectan, buscando una
-                distribución ordenada que facilite la fabricación y
-                la soldadura.
-            </p>
-
-            <figure class="imagen-avance">
-                <img
-                    src="circuito.jpeg"
-                    alt="Diseño del circuito en KiCad"
-                    loading="lazy"
-                >
-                <figcaption>
-                    Avance del diseño del circuito en KiCad.
-                </figcaption>
-            </figure>
-
-            <p>
-                Antes de fabricar la placa, revisaremos que las conexiones
-                correspondan al esquemático y que el diseño cumpla con los
-                parámetros establecidos para la CNC. Finalmente, exportaremos
-                los archivos necesarios para preparar el mecanizado en
-                el software correspondiente.
-            </p>
-        </section>
-        <section class="tema parametros">
-    <h2>4. Parámetros</h2>
-
-    <p>
-        Una vez organizados los componentes, comenzamos a ajustar
-        los parámetros de las pistas que conectarán nuestro circuito.
-        No basta con unir los puntos: también necesitamos definir
-        el ancho de las conexiones y dejar espacio suficiente
-        entre ellas para facilitar la fabricación de la placa.
-    </p>
-
-    <div class="medidas-pistas">
-        <div class="medida">
-            <span class="medida-etiqueta">Ancho mínimo</span>
-            <strong>0.4 <small>mm</small></strong>
-            <span>Límite inferior establecido para nuestras pistas.</span>
-        </div>
-
-        <div class="medida">
-            <span class="medida-etiqueta">Ancho máximo</span>
-            <strong>0.8 <small>mm</small></strong>
-            <span>Límite superior elegido para este diseño.</span>
-        </div>
-    </div>
-
-    <p>
-        Para nuestro proyecto establecimos un ancho mínimo de
-        0.4 mm y un máximo de 0.8 mm. Con este intervalo buscamos
-        mantener un trazado ordenado y reducir dificultades al
-        fabricar las conexiones. El ancho que utilicemos en cada
-        recorrido debe considerar tanto el espacio disponible
-        como la corriente que circulará por esa pista.
-    </p>
-
-    <div class="detalle-pistas">
-        <figure class="captura-pistas">
-            <a href="pistas.jpeg" target="_blank" rel="noopener">
-                <img
-                    src="pistas.jpeg"
-                    alt="Configuración de las pistas en KiCad"
-                    loading="lazy"
-                >
-            </a>
-            <figcaption>
-                Ajuste de las pistas en KiCad.
-                Pulsa la imagen para verla completa.
-            </figcaption>
-        </figure>
-
-        <div class="explicacion-pistas">
-            <h3>¿Qué buscamos con estos ajustes?</h3>
-
-            <p>
-                Al definir los anchos antes de continuar, tenemos
-                una referencia para trabajar de forma consistente.
-                Esto nos ayuda a evitar cambios improvisados y a
-                distribuir mejor las conexiones entre componentes.
-            </p>
-
-            <p>
-                También revisamos las separaciones, especialmente
-                en zonas donde se juntan varias pistas o terminales.
-                El ancho de una pista y el espacio entre pistas
-                son parámetros diferentes: ambos deben revisarse
-                para evitar conexiones no deseadas.
-            </p>
-        </div>
-    </div>
-
-    <h3>Del diseño a la fabricación</h3>
-
-    <p>
-        Estos ajustes también deben relacionarse con la máquina CNC
-        que utilizaremos. La herramienta necesita poder retirar
-        el cobre entre las conexiones sin dañar las pistas que
-        queremos conservar. Por eso, antes de fabricar, revisaremos
-        que las separaciones del diseño sean compatibles con la
-        herramienta y con la precisión del equipo.
-    </p>
-
-    <p>
-        Finalmente, comprobaremos que no existan conexiones pendientes
-        y ejecutaremos la revisión de reglas de diseño de KiCad.
-        Establecer el intervalo de 0.4 a 0.8 mm es parte de nuestra
-        preparación, pero también necesitamos verificar el circuito
-        completo para pasar a la fabricación con un diseño revisado.
-    </p>
-
-    <aside class="nota-parametros">
-        <strong>Criterio de nuestro proyecto</strong>
-        <p>
-            Las medidas elegidas corresponden a esta placa.
-            Su adecuación se verificará considerando la corriente
-            del circuito, el espesor del cobre y las capacidades
-            de fabricación de la CNC.
-        </p>
-    </aside>
-</section>
-<section class="tema conexiones">
-    <div class="conexiones-cabecera">
-        <h2>5. Conectar componentes</h2>
-        <p>Del esquemático a las conexiones de nuestra placa.</p>
-        <span class="ancho-conexion">Ancho elegido: 0.4 mm</span>
-    </div>
-
-    <p>
-        En esta etapa conectaremos los componentes mediante las pistas
-        de cobre de la PCB, siguiendo las conexiones definidas en el
-        esquemático. Para este trazado utilizaremos un ancho de
-        0.4 mm, respetando el mínimo que configuramos para nuestro
-        proyecto.
-    </p>
-
-    <p>
-        Es importante mantener este ajuste durante el recorrido.
-        Una pista más estrecha que el mínimo configurado puede
-        generar una infracción en la revisión de reglas de diseño
-        de KiCad. El valor de 0.4 mm corresponde a nuestra
-        configuración; no es una medida obligatoria para todos
-        los proyectos del programa.
-    </p>
-
-    <figure class="conexiones-imagen">
-        <a href="lineas.jpeg" target="_blank" rel="noopener">
-            <img
-                src="lineas.jpeg"
-                alt="Trazado de las pistas para conectar componentes en KiCad"
-                loading="lazy"
+            <!-- SECCIÓN KICAD -->
+            <section
+                id="kicad"
+                class="panel"
+                aria-labelledby="titulo-kicad"
             >
-        </a>
-        <figcaption>
-            Conexión de componentes mediante pistas en KiCad.
-            Pulsa la imagen para ampliarla.
-        </figcaption>
-    </figure>
+                <div class="titulo-seccion">
+                    <span>Diseño de la placa</span>
+                    <h2 id="titulo-kicad" tabindex="-1">KiCad</h2>
+                </div>
 
-    <h3>¿Cómo realizaremos las conexiones?</h3>
-
-    <ol class="conexiones-pasos">
-        <li>
-            <strong>Definir el ancho</strong>
-            <p>
-                Seleccionaremos pistas de 0.4 mm antes de comenzar
-                y comprobaremos que los segmentos trazados conserven
-                el ancho elegido.
-            </p>
-        </li>
-
-        <li>
-            <strong>Organizar los recorridos</strong>
-            <p>
-                Buscaremos trayectorias ordenadas y bien alineadas.
-                Las pistas de conexiones diferentes no deben cruzarse
-                ni tocarse en una misma capa de cobre, ya que esto
-                podría provocar un cortocircuito. También debemos
-                respetar la separación configurada entre ellas.
-            </p>
-        </li>
-
-        <li>
-            <strong>Revisar los puntos de unión</strong>
-            <p>
-                Comprobaremos que cada pista llegue al punto de
-                conexión correcto del componente. No basta con que
-                parezca cercana: debe quedar conectada al pad
-                correspondiente, sin dejar conexiones pendientes.
-            </p>
-        </li>
-    </ol>
-
-    <div class="conexiones-cierre">
-        <strong>Antes de continuar</strong>
-        <p>
-            Ejecutaremos la revisión de reglas de diseño y
-            corregiremos las infracciones que aparezcan. Así
-            podremos detectar separaciones insuficientes,
-            conexiones incorrectas o pistas demasiado estrechas
-            antes de preparar la fabricación de la placa.
-        </p>
-    </div>
-</section>
-<section class="tema zonas-cobre">
-    <header class="zonas-titulo">
-        <span>PREPARACIÓN PARA FABRICACIÓN</span>
-        <h2>6. Delimitación de zonas de cobre</h2>
-    </header>
-
-    <p>
-        Una vez trazadas las conexiones, continuaremos con la
-        delimitación de las zonas de cobre de nuestra placa.
-        En esta etapa utilizaremos la herramienta
-        “Dibujar zonas rellenas” de KiCad para definir un área
-        de cobre dentro del diseño.
-    </p>
-
-    <div class="zonas-contenido">
-        <div class="zonas-texto">
-            <h3>La capa F.Cu</h3>
-
-            <p>
-                Trabajaremos en F.Cu, que corresponde a la capa
-                de cobre frontal de la PCB. Al crear la zona,
-                seleccionaremos la red eléctrica a la que
-                pertenecerá, de acuerdo con nuestro esquemático.
-            </p>
-
-            <p>
-                Esta selección es importante porque determina
-                qué conexiones podrán unirse al relleno.
-                La zona debe mantener la separación configurada
-                respecto a las pistas y terminales de otras redes,
-                evitando uniones eléctricas no deseadas.
-            </p>
-
-            <div class="zonas-dato">
-                <strong>Herramienta</strong>
-                <span>Dibujar zonas rellenas</span>
-                <strong>Capa de trabajo</strong>
-                <span>F.Cu · Cobre frontal</span>
-            </div>
-        </div>
-
-        <figure class="zonas-captura">
-            <a href="zonas.png" target="_blank" rel="noopener">
-                <img
-                    src="delimitacion.jpeg"
-                    alt="Herramienta Dibujar zonas rellenas y capa F.Cu en KiCad"
-                    loading="lazy"
+                <!-- PUNTO 1 -->
+                <section
+                    id="kicad-produccion"
+                    class="tema"
+                    data-indice="1. Producción electrónica"
                 >
-            </a>
-            <figcaption>
-                Herramienta y capa que utilizaremos.
-                Pulsa la captura para ampliarla.
-            </figcaption>
-        </figure>
+                    <h3 tabindex="-1">1. Producción electrónica</h3>
+
+                    <p>
+                        La producción electrónica es el proceso de diseñar,
+                        fabricar, ensamblar y verificar dispositivos y
+                        circuitos electrónicos. Su objetivo es transformar
+                        un diseño en un producto funcional que cumpla con
+                        los requisitos de calidad y funcionamiento.
+                    </p>
+
+                    <p>
+                        En una placa de circuito impreso (PCB), este proceso
+                        incluye elaborar el diagrama del circuito,
+                        seleccionar los componentes, diseñar las pistas y
+                        fabricar la placa. Después, se colocan y sueldan los
+                        componentes y se realizan pruebas para comprobar
+                        que las conexiones y el circuito funcionen
+                        correctamente.
+                    </p>
+
+                    <p>
+                        A lo largo de esta materia documentaremos la
+                        creación de nuestra placa, desde el diseño inicial
+                        hasta su ensamblaje y pruebas, mostrando los
+                        avances y las dificultades de cada etapa.
+                    </p>
+                </section>
+
+                <!-- PUNTO 2 -->
+                <section
+                    id="kicad-programa"
+                    class="tema"
+                    data-indice="2. Programa KiCad"
+                >
+                    <h3 tabindex="-1">2. Programa KiCad</h3>
+
+                    <p>
+                        El programa que estamos utilizando para desarrollar
+                        nuestra placa de circuito impreso es KiCad. Con este
+                        software podemos elaborar el diagrama esquemático,
+                        seleccionar las huellas de los componentes y
+                        diseñar la distribución de nuestra placa.
+                    </p>
+
+                    <p>
+                        Para comenzar, descargamos e instalamos KiCad en
+                        nuestro equipo. Este es el primer paso para contar
+                        con las herramientas necesarias y empezar a
+                        trabajar en el proyecto.
+                    </p>
+
+                    <figure class="imagen-avance">
+                        <a
+                            href="inicio%20de%20kicad.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="inicio%20de%20kicad.jpeg"
+                                alt="Descarga del programa KiCad"
+                                loading="lazy"
+                            >
+                        </a>
+                        <figcaption>
+                            Descarga del programa KiCad.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Desde la interfaz de KiCad podemos crear y
+                        organizar nuestro proyecto, abrir el editor de
+                        esquemáticos y acceder al editor de placas de
+                        circuito impreso. Estas herramientas nos permiten
+                        pasar de las conexiones eléctricas del circuito
+                        a su distribución física en la placa.
+                    </p>
+
+                    <figure class="imagen-avance">
+                        <a
+                            href="KICAD.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="KICAD.jpeg"
+                                alt="Interfaz del programa KiCad"
+                                loading="lazy"
+                            >
+                        </a>
+                        <figcaption>
+                            Interfaz del programa KiCad.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Durante el diseño podemos definir las dimensiones
+                        de la placa, el ancho de las pistas, la separación
+                        entre conexiones y el tamaño de las perforaciones.
+                        Ajustaremos estos parámetros conforme a las
+                        capacidades de la máquina CNC ________, ya que
+                        con este equipo vamos a fabricar nuestra placa.
+                    </p>
+
+                    <p>
+                        KiCad también cuenta con herramientas de revisión
+                        que ayudan a identificar posibles errores de
+                        conexión y verificar las reglas de diseño.
+                        Además, permite visualizar la placa en 3D para
+                        revisar la distribución de los componentes
+                        antes de pasar a la fabricación.
+                    </p>
+                </section>
+
+                <!-- PUNTO 3 -->
+                <section
+                    id="kicad-esquematico"
+                    class="tema"
+                    data-indice="3. Elaboración del esquemático"
+                >
+                    <h3 tabindex="-1">3. Elaboración del esquemático</h3>
+
+                    <p>
+                        Iniciamos armando el circuito en el editor de
+                        esquemáticos de KiCad. Colocamos algunas
+                        resistencias e interruptores (switches),
+                        representados mediante sus símbolos eléctricos,
+                        y realizamos las conexiones necesarias entre
+                        los componentes para armar nuestro circuito.
+                    </p>
+
+                    <figure class="imagen-avance">
+                        <a
+                            href="esquematico.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="esquematico.jpeg"
+                                alt="Esquemático de nuestro circuito en KiCad"
+                                loading="lazy"
+                            >
+                        </a>
+                        <figcaption>
+                            Elaboración del esquemático del circuito.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        El esquemático es importante porque sirve como
+                        guía para diseñar la placa de circuito impreso.
+                        Por esta razón lo elaboramos primero: nos permite
+                        identificar los componentes, entender cómo se
+                        conectan y revisar las conexiones antes de
+                        trabajar en la distribución física de la placa.
+                    </p>
+
+                    <p>
+                        Después asignamos a cada componente su huella,
+                        que representa el espacio y los puntos de conexión
+                        que ocupará en la PCB. La huella debe coincidir
+                        con las dimensiones y la posición de las
+                        terminales del componente que utilizaremos.
+                    </p>
+
+                    <figure class="imagen-avance">
+                        <a
+                            href="huella.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="huella.jpeg"
+                                alt="Huella de un componente en KiCad"
+                                loading="lazy"
+                            >
+                        </a>
+                        <figcaption>
+                            Asignación de la huella de un componente.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Una vez definidos el esquemático y las huellas,
+                        podemos continuar en el editor de PCB. Ahí
+                        acomodamos los componentes y trazamos las pistas
+                        que los conectan, buscando una distribución
+                        ordenada que facilite la fabricación y la
+                        soldadura.
+                    </p>
+
+                    <figure class="imagen-avance">
+                        <a
+                            href="circuito.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="circuito.jpeg"
+                                alt="Diseño del circuito en KiCad"
+                                loading="lazy"
+                            >
+                        </a>
+                        <figcaption>
+                            Avance del diseño del circuito en KiCad.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Antes de fabricar la placa, revisaremos que las
+                        conexiones correspondan al esquemático y que el
+                        diseño cumpla con los parámetros establecidos
+                        para la CNC. Finalmente, exportaremos los archivos
+                        necesarios para preparar el mecanizado en el
+                        software correspondiente.
+                    </p>
+                </section>
+
+                <!-- PUNTO 4 -->
+                <section
+                    id="kicad-parametros"
+                    class="tema parametros"
+                    data-indice="4. Parámetros"
+                >
+                    <h3 tabindex="-1">4. Parámetros</h3>
+
+                    <p>
+                        Una vez organizados los componentes, comenzamos
+                        a ajustar los parámetros de las pistas que
+                        conectarán nuestro circuito. Necesitamos definir
+                        el ancho de las conexiones y dejar espacio
+                        suficiente entre ellas para facilitar la
+                        fabricación de la placa.
+                    </p>
+
+                    <div class="medidas-pistas">
+                        <div class="medida">
+                            <span>Ancho mínimo</span>
+                            <strong>0.4 <small>mm</small></strong>
+                            <span>
+                                Límite inferior establecido para
+                                nuestras pistas.
+                            </span>
+                        </div>
+
+                        <div class="medida">
+                            <span>Ancho máximo</span>
+                            <strong>0.8 <small>mm</small></strong>
+                            <span>
+                                Límite superior elegido para este diseño.
+                            </span>
+                        </div>
+                    </div>
+
+                    <p>
+                        Para nuestro proyecto establecimos un ancho mínimo
+                        de 0.4 mm y un máximo de 0.8 mm. Con este intervalo
+                        buscamos mantener un trazado ordenado y reducir
+                        dificultades al fabricar las conexiones.
+                        El ancho elegido debe considerar el espacio
+                        disponible y la corriente que circulará por
+                        cada pista.
+                    </p>
+
+                    <div class="dos-columnas">
+                        <figure class="captura">
+                            <a
+                                href="pistas.jpeg"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <img
+                                    src="pistas.jpeg"
+                                    alt="Configuración de las pistas en KiCad"
+                                    loading="lazy"
+                                >
+                            </a>
+                            <figcaption>
+                                Ajuste de las pistas en KiCad.
+                                Pulsa la imagen para ampliarla.
+                            </figcaption>
+                        </figure>
+
+                        <div>
+                            <h4>¿Qué buscamos con estos ajustes?</h4>
+
+                            <p>
+                                Definir los anchos antes de continuar
+                                nos da una referencia para trabajar
+                                de forma consistente y distribuir
+                                mejor las conexiones.
+                            </p>
+
+                            <p>
+                                También revisamos las separaciones,
+                                especialmente donde se juntan varias
+                                pistas o terminales. El ancho y la
+                                separación son parámetros diferentes
+                                y ambos deben comprobarse.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h4>Del diseño a la fabricación</h4>
+
+                    <p>
+                        La herramienta de la CNC necesita retirar el
+                        cobre entre las conexiones sin dañar las pistas
+                        que queremos conservar. Por eso revisaremos
+                        que las separaciones sean compatibles con
+                        la herramienta y con la precisión del equipo.
+                    </p>
+
+                    <p>
+                        Finalmente, comprobaremos que no existan
+                        conexiones pendientes y ejecutaremos la revisión
+                        de reglas de diseño de KiCad antes de preparar
+                        la fabricación.
+                    </p>
+
+                    <aside class="nota">
+                        <strong>Criterio de nuestro proyecto</strong>
+                        <p>
+                            Las medidas elegidas corresponden a esta
+                            placa. Su adecuación se verificará
+                            considerando la corriente del circuito,
+                            el espesor del cobre y las capacidades
+                            de fabricación de la CNC.
+                        </p>
+                    </aside>
+                </section>
+
+                <!-- PUNTO 5 -->
+                <section
+                    id="kicad-conexiones"
+                    class="tema conexiones"
+                    data-indice="5. Conectar componentes"
+                >
+                    <div class="conexiones-cabecera">
+                        <h3 tabindex="-1">5. Conectar componentes</h3>
+                        <span class="etiqueta-ancho">
+                            Ancho elegido: 0.4 mm
+                        </span>
+                    </div>
+
+                    <p>
+                        En esta etapa conectaremos los componentes
+                        mediante las pistas de cobre de la PCB,
+                        siguiendo las conexiones del esquemático.
+                        Para este trazado utilizaremos un ancho
+                        de 0.4 mm, respetando el mínimo configurado
+                        para nuestro proyecto.
+                    </p>
+
+                    <p>
+                        Una pista más estrecha que el mínimo configurado
+                        puede generar una infracción en la revisión
+                        de reglas de diseño. El valor de 0.4 mm
+                        corresponde a nuestra configuración; no es
+                        una medida obligatoria para todos los
+                        proyectos de KiCad.
+                    </p>
+
+                    <figure class="imagen-avance">
+                        <a
+                            href="lineas.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="lineas.jpeg"
+                                alt="Trazado de pistas para conectar componentes"
+                                loading="lazy"
+                            >
+                        </a>
+                        <figcaption>
+                            Conexión de componentes mediante pistas
+                            en KiCad.
+                        </figcaption>
+                    </figure>
+
+                    <h4>¿Cómo realizaremos las conexiones?</h4>
+
+                    <ol class="pasos">
+                        <li>
+                            <strong>Definir el ancho</strong>
+                            <p>
+                                Seleccionaremos pistas de 0.4 mm y
+                                comprobaremos que los segmentos
+                                trazados conserven el ancho elegido.
+                            </p>
+                        </li>
+
+                        <li>
+                            <strong>Organizar los recorridos</strong>
+                            <p>
+                                Buscaremos trayectorias ordenadas.
+                                Las pistas de conexiones diferentes
+                                no deben cruzarse ni tocarse en una
+                                misma capa de cobre, ya que podrían
+                                provocar un cortocircuito.
+                                Respetaremos también la separación
+                                configurada entre ellas.
+                            </p>
+                        </li>
+
+                        <li>
+                            <strong>Revisar los puntos de unión</strong>
+                            <p>
+                                Cada pista debe llegar al pad correcto
+                                del componente. No basta con que
+                                parezca cercana: debe quedar
+                                eléctricamente conectada, sin
+                                dejar conexiones pendientes.
+                            </p>
+                        </li>
+                    </ol>
+
+                    <aside class="nota">
+                        <strong>Antes de continuar</strong>
+                        <p>
+                            Ejecutaremos la revisión de reglas de
+                            diseño para detectar separaciones
+                            insuficientes, conexiones incorrectas
+                            o pistas demasiado estrechas.
+                        </p>
+                    </aside>
+                </section>
+
+                <!-- PUNTO 6 -->
+                <section
+                    id="kicad-zonas"
+                    class="tema zonas-cobre"
+                    data-indice="6. Zonas de cobre"
+                >
+                    <span class="zonas-subtitulo">
+                        PREPARACIÓN PARA FABRICACIÓN
+                    </span>
+
+                    <h3 tabindex="-1">
+                        6. Delimitación de zonas de cobre
+                    </h3>
+
+                    <p>
+                        Una vez trazadas las conexiones, continuaremos
+                        con la delimitación de las zonas de cobre.
+                        Utilizaremos la herramienta “Dibujar zonas
+                        rellenas” de KiCad para definir un área
+                        de cobre dentro del diseño.
+                    </p>
+
+                    <div class="dos-columnas">
+                        <div>
+                            <h4>La capa F.Cu</h4>
+
+                            <p>
+                                Trabajaremos en F.Cu, que corresponde
+                                a la capa de cobre frontal de la PCB.
+                                Al crear la zona seleccionaremos
+                                la red eléctrica a la que pertenecerá,
+                                de acuerdo con nuestro esquemático.
+                            </p>
+
+                            <p>
+                                La zona debe mantener la separación
+                                configurada respecto a las pistas
+                                y terminales de otras redes, evitando
+                                uniones eléctricas no deseadas.
+                            </p>
+
+                            <dl class="zonas-dato">
+                                <dt>Herramienta</dt>
+                                <dd>Dibujar zonas rellenas</dd>
+                                <dt>Capa de trabajo</dt>
+                                <dd>F.Cu · Cobre frontal</dd>
+                            </dl>
+                        </div>
+
+                        <figure class="captura">
+                            <a
+                                href="delimitacion.jpeg"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <img
+                                    src="delimitacion.jpeg"
+                                    alt="Herramienta Dibujar zonas rellenas y capa F.Cu"
+                                    loading="lazy"
+                                >
+                            </a>
+                            <figcaption>
+                                Herramienta y capa que utilizaremos.
+                                Pulsa la captura para ampliarla.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <h4>Delimitar, rellenar y revisar</h4>
+
+                    <p>
+                        Dibujaremos el contorno de la zona mediante
+                        sus vértices y cerraremos el polígono.
+                        Después actualizaremos el relleno para
+                        comprobar cómo se distribuye el cobre
+                        alrededor de las pistas y los componentes.
+                    </p>
+
+                    <p>
+                        El límite de esta zona no sustituye el borde
+                        físico de la placa. Ese contorno se define
+                        por separado en Edge.Cuts y debe formar
+                        un perímetro cerrado.
+                    </p>
+
+                    <aside class="nota nota-cobre">
+                        <strong>¿Qué hará la CNC?</strong>
+                        <p>
+                            La CNC mecanizará la placa retirando
+                            material para aislar las conexiones.
+                            La soldadura se realizará después de
+                            fabricar y revisar la PCB, al colocar
+                            los componentes.
+                        </p>
+                    </aside>
+
+                    <p>
+                        Antes de preparar los archivos de fabricación,
+                        actualizaremos las zonas y ejecutaremos
+                        la revisión de reglas de diseño.
+                        Verificaremos también que las separaciones
+                        puedan realizarse con la herramienta
+                        de la CNC.
+                    </p>
+                </section>
+            </section>
+
+            <!-- SECCIÓN MONOFAB -->
+            <section
+                id="monofab"
+                class="panel"
+                aria-labelledby="titulo-monofab"
+                hidden
+            >
+                <div class="titulo-seccion">
+                    <span>Registro de avances</span>
+                    <h2 id="titulo-monofab" tabindex="-1">Monofab</h2>
+                </div>
+
+                <div class="pendiente">
+                    <h3>Próximos avances</h3>
+                    <p>
+                        Aquí documentaremos el trabajo con Monofab,
+                        incluyendo la preparación del equipo,
+                        sus ajustes y las evidencias del proceso.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECCIÓN CNC -->
+            <section
+                id="cnc"
+                class="panel"
+                aria-labelledby="titulo-cnc"
+                hidden
+            >
+                <div class="titulo-seccion">
+                    <span>Registro de avances</span>
+                    <h2 id="titulo-cnc" tabindex="-1">CNC</h2>
+                </div>
+
+                <div class="pendiente">
+                    <h3>Próximos avances</h3>
+                    <p>
+                        Aquí agregaremos los apartados de CNC:
+                        preparación de archivos, herramientas,
+                        parámetros de mecanizado y resultados.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- ÍNDICE DERECHO: SE GENERA SEGÚN LA SECCIÓN -->
+        <aside class="indice">
+            <h2 id="titulo-indice">Apartados · KiCad</h2>
+            <nav aria-labelledby="titulo-indice">
+                <ol id="lista-indice"></ol>
+            </nav>
+            <p id="indice-vacio" class="indice-vacio" hidden>
+                Todavía no hay apartados publicados.
+            </p>
+        </aside>
     </div>
 
-    <h3>Delimitar, rellenar y revisar</h3>
+    <footer>
+        Producción Electrónica · Registro de avances
+    </footer>
 
-    <p>
-        Con la herramienta seleccionada dibujaremos el contorno
-        de la zona mediante sus vértices y cerraremos el polígono.
-        Después actualizaremos el relleno para comprobar cómo
-        se distribuye el cobre alrededor de las pistas y los
-        componentes. Dibujar el contorno es solo una parte:
-        también debemos revisar el resultado del relleno.
-    </p>
+    <script>
+        const botones = document.querySelectorAll(".boton-seccion");
+        const paneles = document.querySelectorAll(".panel");
+        const listaIndice = document.getElementById("lista-indice");
+        const tituloIndice = document.getElementById("titulo-indice");
+        const indiceVacio = document.getElementById("indice-vacio");
 
-    <p>
-        El límite de esta zona no sustituye el borde físico
-        de la placa. Ese contorno se define por separado en
-        Edge.Cuts y debe formar un perímetro cerrado. Revisaremos
-        ambos elementos para que la distribución del cobre
-        corresponda con las dimensiones de nuestra PCB.
-    </p>
+        const nombres = {
+            kicad: "KiCad",
+            monofab: "Monofab",
+            cnc: "CNC"
+        };
 
-    <aside class="zonas-fabricacion">
-        <h3>¿Qué hará la CNC?</h3>
-        <p>
-            En nuestro proceso, la CNC mecanizará la placa
-            retirando material para aislar las conexiones;
-            no realizará la soldadura de los componentes.
-            Tras fabricar y revisar la PCB, colocaremos y
-            soldaremos los componentes en sus puntos de conexión.
-        </p>
-    </aside>
+        let panelActual = null;
+        let actualizacionPendiente = false;
 
-    <p>
-        Antes de preparar los archivos de fabricación, actualizaremos
-        las zonas y ejecutaremos la revisión de reglas de diseño.
-        También verificaremos que las separaciones puedan realizarse
-        con la herramienta de la CNC. Así podremos corregir problemas
-        antes de mecanizar y avanzar hacia una placa lista para
-        el ensamblaje.
-    </p>
-</section>
-    </main>
+        function crearIndice(panel) {
+            listaIndice.replaceChildren();
+
+            const apartados = panel.querySelectorAll("[data-indice]");
+            indiceVacio.hidden = apartados.length > 0;
+
+            apartados.forEach((apartado) => {
+                const elemento = document.createElement("li");
+                const enlace = document.createElement("a");
+
+                enlace.href = "#" + apartado.id;
+                enlace.textContent = apartado.dataset.indice;
+
+                enlace.addEventListener("click", (evento) => {
+                    evento.preventDefault();
+                    navegar(apartado.id);
+                });
+
+                elemento.appendChild(enlace);
+                listaIndice.appendChild(elemento);
+            });
+        }
+
+        function activarPanel(id) {
+            const panel = document.getElementById(id);
+
+            if (!panel || !panel.classList.contains("panel")) return;
+
+            paneles.forEach((elemento) => {
+                elemento.hidden = elemento !== panel;
+            });
+
+            botones.forEach((boton) => {
+                boton.setAttribute(
+                    "aria-pressed",
+                    String(boton.dataset.panel === id)
+                );
+            });
+
+            tituloIndice.textContent = "Apartados · " + nombres[id];
+            panelActual = panel;
+            crearIndice(panel);
+        }
+
+        function marcarApartadoActual() {
+            if (!panelActual) return;
+
+            const apartados = [
+                ...panelActual.querySelectorAll("[data-indice]")
+            ];
+
+            if (apartados.length === 0) return;
+
+            let actual = apartados[0];
+
+            for (const apartado of apartados) {
+                if (apartado.getBoundingClientRect().top <= 150) {
+                    actual = apartado;
+                }
+            }
+
+            listaIndice.querySelectorAll("a").forEach((enlace) => {
+                if (enlace.hash === "#" + actual.id) {
+                    enlace.setAttribute("aria-current", "location");
+                } else {
+                    enlace.removeAttribute("aria-current");
+                }
+            });
+        }
+
+        function navegar(id, guardarHistorial = true, desplazar = true) {
+            const destino = document.getElementById(id);
+            if (!destino) return;
+
+            const panel = destino.classList.contains("panel")
+                ? destino
+                : destino.closest(".panel");
+
+            if (!panel) return;
+
+            if (panel !== panelActual) {
+                activarPanel(panel.id);
+            }
+
+            if (guardarHistorial && location.hash !== "#" + id) {
+                history.pushState(null, "", "#" + id);
+            }
+
+            if (desplazar) {
+                const titulo = destino.querySelector("h2, h3");
+
+                if (titulo) {
+                    titulo.focus({ preventScroll: true });
+                }
+
+                const reducirMovimiento = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches;
+
+                destino.scrollIntoView({
+                    behavior: reducirMovimiento ? "auto" : "smooth",
+                    block: "start"
+                });
+            }
+
+            marcarApartadoActual();
+        }
+
+        function leerDireccion() {
+            let id;
+
+            try {
+                id = decodeURIComponent(location.hash.slice(1));
+            } catch {
+                id = "";
+            }
+
+            const destino = document.getElementById(id);
+            const valido = destino && (
+                destino.classList.contains("panel") ||
+                destino.closest(".panel")
+            );
+
+            if (valido) {
+                navegar(id, false, true);
+            } else {
+                activarPanel("kicad");
+                marcarApartadoActual();
+            }
+        }
+
+        botones.forEach((boton) => {
+            boton.addEventListener("click", () => {
+                navegar(boton.dataset.panel);
+            });
+        });
+
+        window.addEventListener("scroll", () => {
+            if (actualizacionPendiente) return;
+
+            actualizacionPendiente = true;
+
+            requestAnimationFrame(() => {
+                marcarApartadoActual();
+                actualizacionPendiente = false;
+            });
+        }, { passive: true });
+
+        window.addEventListener("resize", marcarApartadoActual);
+        window.addEventListener("popstate", leerDireccion);
+        window.addEventListener("hashchange", leerDireccion);
+
+        activarPanel("kicad");
+
+        if (location.hash) {
+            leerDireccion();
+        } else {
+            marcarApartadoActual();
+        }
+    </script>
 </body>
 </html>
