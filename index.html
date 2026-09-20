@@ -1790,9 +1790,11 @@
         const indiceVacio = document.getElementById("indice-vacio");
 
         const nombres = {
+            integrantes: "Integrantes",
             kicad: "KiCad",
             monofab: "Monofab",
             cnc: "CNC"
+            
         };
 
         let panelActual = null;
@@ -1840,6 +1842,7 @@
             tituloIndice.textContent = "Apartados · " + nombres[id];
             panelActual = panel;
             crearIndice(panel);
+            document.querySelector(".indice").hidden = id === "integrantes";
         }
 
         function marcarApartadoActual() {
