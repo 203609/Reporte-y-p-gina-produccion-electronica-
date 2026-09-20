@@ -1452,7 +1452,161 @@
             </p>
         </aside>
     </section>
+<section
+    id="kicad-como-usar-drc"
+    class="tema"
+    data-indice="9.1. Cómo usar el DRC"
+>
+    <div class="conexiones-cabecera">
+        <h3 tabindex="-1" style="color: white;">
+            9.1. Cómo usar el DRC
+        </h3>
 
+        <span class="etiqueta-ancho">
+            Revisión de la placa antes de fabricar
+        </span>
+    </div>
+
+    <p>
+        El DRC, por sus siglas en inglés Design Rules Check,
+        es el comprobador de reglas de diseño de KiCad.
+        Nos ayuda a encontrar problemas en la PCB, como
+        separaciones insuficientes, pistas demasiado estrechas
+        o conexiones que todavía no hemos terminado.
+    </p>
+
+    <p>
+        Esta herramienta compara nuestra placa con las reglas
+        configuradas en el proyecto. Por eso, antes de utilizarla,
+        debemos revisar que los parámetros correspondan con
+        los requisitos del circuito y las capacidades de fabricación.
+    </p>
+
+    <h4>Procedimiento paso por paso</h4>
+
+    <ol class="pasos">
+        <li>
+            <strong>Guardar y preparar la placa</strong>
+            <p>
+                Abrimos el editor de PCB y guardamos los cambios.
+                Si modificamos el esquemático, actualizamos la
+                PCB desde este. También actualizamos las zonas
+                de cobre con la tecla <kbd>B</kbd>, si conservamos
+                los atajos predeterminados.
+            </p>
+        </li>
+
+        <li>
+            <strong>Abrir el comprobador</strong>
+            <p>
+                En el editor de PCB entramos al menú
+                <strong>Inspeccionar</strong> y seleccionamos
+                <strong>Comprobador de reglas de diseño</strong>.
+                El nombre puede variar ligeramente según
+                el idioma y la versión de KiCad.
+            </p>
+        </li>
+
+        <li>
+            <strong>Ejecutar la revisión</strong>
+            <p>
+                Pulsamos el botón para ejecutar el DRC.
+                Esperamos a que termine el análisis y revisamos
+                la lista de infracciones y conexiones pendientes.
+            </p>
+        </li>
+
+        <li>
+            <strong>Localizar cada problema</strong>
+            <p>
+                Hacemos doble clic sobre un resultado para
+                localizar los elementos involucrados en la placa.
+                Leemos el mensaje para identificar qué regla
+                no se está cumpliendo.
+            </p>
+        </li>
+
+        <li>
+            <strong>Corregir el diseño</strong>
+            <p>
+                Ajustamos la pista, el componente o la zona
+                correspondiente. La solución dependerá del
+                problema: aumentar una separación, completar
+                una conexión o corregir el ancho de una pista.
+            </p>
+        </li>
+
+        <li>
+            <strong>Volver a comprobar</strong>
+            <p>
+                Guardamos, actualizamos los rellenos y ejecutamos
+                nuevamente el DRC. Repetimos el proceso hasta
+                resolver los problemas detectados y revisar
+                cualquier advertencia restante.
+            </p>
+        </li>
+    </ol>
+
+    <h4>¿Qué problemas podemos encontrar?</h4>
+
+    <div class="dos-columnas">
+        <div class="nota">
+            <strong>Separación insuficiente</strong>
+            <p>
+                Dos elementos de cobre están más cerca de lo
+                permitido. Revisamos la distancia entre pistas,
+                pads y zonas, y modificamos su distribución.
+            </p>
+        </div>
+
+        <div class="nota">
+            <strong>Conexión pendiente</strong>
+            <p>
+                Hay puntos que deberían estar unidos y todavía
+                no tienen una conexión completa. Localizamos
+                los pads y terminamos el trazado correspondiente.
+            </p>
+        </div>
+
+        <div class="nota">
+            <strong>Ancho de pista incorrecto</strong>
+            <p>
+                Una pista incumple una restricción configurada.
+                En nuestro proyecto, si establecemos 0.4 mm
+                como mínimo, una pista menor a ese valor
+                puede generar una infracción.
+            </p>
+        </div>
+
+        <div class="nota">
+            <strong>Contorno de placa inválido</strong>
+            <p>
+                El contorno puede tener extremos abiertos,
+                segmentos duplicados o intersecciones.
+                Revisamos Edge.Cuts para obtener un perímetro
+                cerrado y sin cruces.
+            </p>
+        </div>
+    </div>
+
+    <aside class="nota nota-cobre">
+        <strong>No basta con ocultar el aviso</strong>
+        <p>
+            No debemos ignorar una infracción ni reducir las
+            restricciones únicamente para que desaparezca.
+            Primero identificamos su causa y comprobamos
+            que la solución sea compatible con la fabricación.
+        </p>
+    </aside>
+
+    <p>
+        El DRC nos ayuda a revisar el diseño físico, pero no
+        garantiza que el circuito funcione eléctricamente.
+        También debemos comprobar el esquemático, la selección
+        de componentes y, después del ensamblaje, realizar
+        las pruebas de funcionamiento.
+    </p>
+</section>
     <!-- PUNTO 10 -->
     <section
         id="kicad-revision"
