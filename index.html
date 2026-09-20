@@ -574,6 +574,18 @@
             <h2>Secciones</h2>
 
             <nav aria-label="Secciones del proyecto">
+                    <button
+                            type="button"
+                            class="boton-seccion"
+                            data-panel="integrantes"
+                            aria-controls="integrantes"
+                            aria-pressed="false"
+                        >
+                            Integrantes
+                        </button>
+
+
+                
                 <button
                     type="button"
                     class="boton-seccion"
@@ -608,29 +620,39 @@
 
         <!-- CONTENIDO CENTRAL -->
         <main>
-            <section class="equipo" aria-labelledby="titulo-equipo">
-                <h2 id="titulo-equipo">Integrantes del equipo</h2>
+<section
+    id="integrantes"
+    class="panel"
+    aria-labelledby="titulo-integrantes"
+    hidden
+>
+    <div class="titulo-seccion">
+        <span>Presentación del equipo</span>
+        <h2 id="titulo-integrantes" tabindex="-1">Integrantes</h2>
+    </div>
 
-                <div class="integrantes">
-                    <figure class="integrante">
-                        <img
-                            src="jose.jpg.jpeg"
-                            alt="José Manuel Góngora Compeán"
-                        >
-                        <figcaption>
-                            José Manuel Góngora Compeán
-                        </figcaption>
-                    </figure>
+    <div class="equipo" style="padding-top: 30px;">
+        <div class="integrantes">
+            <figure class="integrante">
+                <img
+                    src="jose.jpg.jpeg"
+                    alt="José Manuel Góngora Compeán"
+                >
+                <figcaption>
+                    José Manuel Góngora Compeán
+                </figcaption>
+            </figure>
 
-                    <figure class="integrante">
-                        <img
-                            src="rodrigo.jpg.jpeg"
-                            alt="Rodrigo Cermeño"
-                        >
-                        <figcaption>Rodrigo Cermeño</figcaption>
-                    </figure>
-                </div>
-            </section>
+            <figure class="integrante">
+                <img
+                    src="rodrigo.jpg.jpeg"
+                    alt="Rodrigo Zermeño Cervantes"
+                >
+                <figcaption>Rodrigo Cermeño</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
 
            <!-- SECCIÓN KICAD -->
 <section
