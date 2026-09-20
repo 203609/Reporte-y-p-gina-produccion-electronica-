@@ -655,7 +655,15 @@
                 >
                     KiCad
                 </button>
-
+                <button
+                    type="button"
+                    class="boton-seccion"
+                    data-panel="mods"
+                    aria-controls="mods"
+                    aria-pressed="false"
+                >
+                    Mods
+                </button>
                 <button
                     type="button"
                     class="boton-seccion"
@@ -1813,6 +1821,58 @@
 
         <!-- Aquí se agregarán las capturas de revisión y exportación. -->
     </section>
+<section
+    id="mods"
+    class="panel"
+    aria-labelledby="titulo-mods"
+    hidden
+>
+    <div class="titulo-seccion">
+        <span>Preparación para la fabricación</span>
+        <h2 id="titulo-mods" tabindex="-1">Mods</h2>
+    </div>
+
+    <section
+        id="mods-preparacion"
+        class="tema"
+        data-indice="1. Preparación de archivos"
+    >
+        <h3 tabindex="-1">1. Preparación de archivos</h3>
+
+        <p>
+            Después de terminar el diseño de nuestra placa en KiCad,
+            continuaremos con la preparación de los archivos para
+            fabricar el circuito. En esta etapa utilizaremos Mods
+            para generar las trayectorias que seguirá la herramienta
+            de la CNC.
+        </p>
+
+        <p>
+            El diseño de la placa indica dónde deben quedar las pistas
+            y las conexiones. Para llevarlo a la fabricación, necesitamos
+            preparar las instrucciones de mecanizado de acuerdo con
+            la máquina y la herramienta que utilizaremos.
+        </p>
+
+        <div class="nota">
+            <strong>¿Qué documentaremos en esta sección?</strong>
+            <p>
+                Explicaremos paso a paso cómo preparamos y cargamos
+                los archivos, qué parámetros configuramos, cómo
+                revisamos las trayectorias y cómo guardamos el
+                resultado para enviarlo a la CNC.
+            </p>
+        </div>
+
+        <p>
+            Conforme avancemos, agregaremos las capturas de nuestro
+            procedimiento y los valores que utilicemos, para que se
+            pueda seguir el proceso desde el diseño hasta la
+            preparación del mecanizado.
+        </p>
+    </section>
+</section>
+
 </section>
             <section
                 id="monofab"
@@ -1884,6 +1944,7 @@
         const nombres = {
             integrantes: "Integrantes",
             kicad: "KiCad",
+            mods: "Mods",
             monofab: "Monofab",
             cnc: "CNC"
             
