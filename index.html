@@ -2693,7 +2693,6 @@
 
 </section>
 <section
-   <section
     id="monofab"
     class="panel"
     aria-labelledby="titulo-monofab"
@@ -2766,38 +2765,112 @@
         </div>
     </section>
 
-    <section
-        id="monofab-ingresar-archivos"
-        class="tema"
-        data-indice="2. Ingresar archivos"
-    >
-        <h3 tabindex="-1">2. Ingresar archivos</h3>
+   <section
+    id="monofab-coordenadas-parametros"
+    class="tema"
+    data-indice="2. Coordenadas y parámetros"
+>
+    <h3 tabindex="-1">2. Coordenadas y parámetros</h3>
 
-        <!-- Aquí agregaremos el procedimiento y sus capturas. -->
-    </section>
+    <!-- Aquí agregaremos los ajustes y las capturas
+         de las coordenadas y los parámetros. -->
 </section>
 
-            <!-- SECCIÓN CNC -->
-            <section
-                id="cnc"
-                class="panel"
-                aria-labelledby="titulo-cnc"
-                hidden
-            >
-                <div class="titulo-seccion">
-                    <span>Registro de avances</span>
-                    <h2 id="titulo-cnc" tabindex="-1">CNC</h2>
-                </div>
+<section
+    id="monofab-ingresar-archivos"
+    class="tema"
+    data-indice="3. Ingresar archivos"
+>
+    <h3 tabindex="-1">3. Ingresar archivos</h3>
 
-                <div class="pendiente">
-                    <h3>Próximos avances</h3>
-                    <p>
-                        Aquí agregaremos los apartados de CNC:
-                        preparación de archivos, herramientas,
-                        parámetros de mecanizado y resultados.
-                    </p>
-                </div>
-            </section>
+    <p>
+        Una vez preparada la máquina y configuradas las coordenadas
+        y los parámetros, ingresamos los archivos de mecanizado
+        que generamos previamente en Mods.
+    </p>
+
+    <ol class="pasos">
+        <li>
+            <strong>Abrir la ventana de trabajos</strong>
+            <p>
+                En VPanel for SRM-20 hacemos clic en
+                <strong>Cut</strong>. Se abrirá la ventana
+                donde podemos agregar los archivos que
+                utilizaremos para el mecanizado.
+            </p>
+        </li>
+
+        <li>
+            <strong>Buscar el archivo</strong>
+            <p>
+                Presionamos <strong>Add</strong> para abrir
+                el explorador de archivos de la computadora.
+                Buscamos la carpeta donde guardamos los archivos
+                de Mods y seleccionamos el archivo
+                <strong>.rml</strong> correspondiente.
+            </p>
+        </li>
+
+        <li>
+            <strong>Comprobar la selección</strong>
+            <p>
+                Confirmamos que el archivo aparezca en la lista
+                de trabajos y que corresponda a la operación
+                que vamos a realizar. También comprobamos que
+                la herramienta instalada sea la adecuada
+                para ese archivo.
+            </p>
+        </li>
+
+        <li>
+            <strong>Iniciar el mecanizado</strong>
+            <p>
+                Con el material fijado, el origen de trabajo
+                establecido y la cubierta cerrada, presionamos
+                <strong>Output</strong> para enviar el trabajo
+                a la monoFab e iniciar el mecanizado.
+            </p>
+        </li>
+    </ol>
+
+    <h4>Operaciones que realizaremos</h4>
+
+    <p>
+        Para fabricar nuestra placa utilizaremos tres archivos
+        independientes, cada uno destinado a una operación:
+    </p>
+
+    <ul>
+        <li>
+            <strong>Perforación:</strong>
+            realiza los orificios donde se colocarán
+            las terminales de los componentes.
+        </li>
+        <li>
+            <strong>Pistas:</strong>
+            retira el cobre necesario para separar
+            eléctricamente las conexiones del circuito.
+        </li>
+        <li>
+            <strong>Contorno:</strong>
+            recorta el borde exterior para obtener
+            la forma final de la placa.
+        </li>
+    </ul>
+
+    <div class="nota">
+        <strong>Revisar antes de presionar Output</strong>
+        <p>
+            Output inicia el trabajo; no sirve únicamente
+            para seleccionar el archivo. Ejecutamos cada
+            operación con su herramienta correspondiente
+            y ajustamos nuevamente el origen Z cuando
+            cambiamos de herramienta. Dejamos el contorno
+            para el final, para mantener la placa sujeta
+            durante el mecanizado de las pistas y los orificios.
+        </p>
+    </div>
+</section>
         </main>
 
         <!-- ÍNDICE DERECHO: SE GENERA SEGÚN LA SECCIÓN -->
