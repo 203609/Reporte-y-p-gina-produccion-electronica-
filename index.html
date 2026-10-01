@@ -2846,6 +2846,84 @@
         </figcaption>
     </figure>
 </li>
+<li>
+    <strong>Calibración de los ejes X, Y y Z</strong>
+
+    <p>
+        Una vez que tenemos preparada la placa y hemos elegido
+        la esquina que utilizaremos como referencia, debemos
+        calibrar correctamente los ejes X, Y y Z de la
+        Roland monoFab SRM-20.
+    </p>
+
+    <p>
+        Esta calibración es muy importante, ya que estas
+        coordenadas le indican a la máquina desde qué punto
+        debe comenzar a realizar los recorridos de mecanizado.
+        Si el origen no se establece correctamente, el recorrido
+        podría quedar desplazado respecto a la placa.
+    </p>
+
+    <p>
+        Primero movemos manualmente la herramienta hasta colocarla
+        en la esquina de la placa que seleccionamos anteriormente.
+        Ajustamos los ejes X y Y hasta que la herramienta quede
+        posicionada correctamente sobre este punto de referencia.
+    </p>
+
+    <p>
+        Después ajustamos el eje Z, acercando cuidadosamente
+        la herramienta a la superficie de la placa. Este eje
+        determina la altura desde la cual comenzará el proceso
+        de mecanizado, por lo que debemos realizar el ajuste
+        con cuidado para no golpear ni dañar la placa.
+    </p>
+
+    <p>
+        Cuando los ejes se encuentran en la posición correcta,
+        seleccionamos <strong>XY</strong> para guardar las
+        coordenadas de los ejes X y Y como nuestro origen de
+        trabajo. Posteriormente seleccionamos <strong>Z</strong>
+        para guardar la posición correspondiente al eje Z.
+    </p>
+
+    <figure class="imagen-avance">
+        <a href="xyzseleccionados.jpeg"
+           target="_blank"
+           rel="noopener noreferrer">
+            <img
+                src="xyzseleccionados.jpeg"
+                alt="Selección de los orígenes XY y Z en VPanel for SRM-20"
+                loading="lazy"
+            >
+        </a>
+
+        <figcaption>
+            Selección de XY y Z para guardar las coordenadas
+            de origen de la Roland monoFab SRM-20.
+        </figcaption>
+    </figure>
+
+    <p>
+        De esta manera, las coordenadas obtenidas en la esquina
+        de la placa quedan registradas como el punto de origen
+        de la máquina. A partir de esta referencia, la monoFab
+        podrá realizar correctamente los recorridos correspondientes
+        a las pistas, perforaciones y contorno de nuestra placa.
+    </p>
+
+    <aside class="nota">
+        <strong>Importante</strong>
+
+        <p>
+            Antes de comenzar cualquier operación, debemos comprobar
+            que los orígenes XY y Z hayan quedado guardados
+            correctamente. Si cambiamos la posición de la placa
+            o modificamos la altura de la herramienta, debemos
+            revisar nuevamente la calibración antes de continuar.
+        </p>
+    </aside>
+</li>
 
 <section
     id="monofab-ingresar-archivos"
