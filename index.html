@@ -824,6 +824,7 @@
                 
             <button type="button" class="boton-seccion" data-panel="multisim" aria-controls="multisim" aria-pressed="false">Multisim</button>
             <button type="button" class="boton-seccion" data-panel="altium" aria-controls="altium" aria-pressed="false">Altium Designer</button>
+            <button type="button" class="boton-seccion" data-panel="soldadura" aria-controls="soldadura" aria-pressed="false">Soldadura</button>
 </nav>
         </aside>
 
@@ -3375,6 +3376,51 @@
         <p><a href="https://www.altium.com/documentation/altium-designer/pcb/drc">Guía de verificación de reglas de diseño en Altium</a></p>
     </section>
 </section>
+<!-- SECCIÓN SOLDADURA -->
+<section id="soldadura" class="panel" aria-labelledby="titulo-soldadura" hidden>
+    <div class="titulo-seccion">
+        <span>Ensamble y prueba de la placa</span>
+        <h2 id="titulo-soldadura" tabindex="-1">Soldadura: técnicas y resultados</h2>
+    </div>
+    <p>En esta práctica montamos a mano los componentes de una placa de cuatro pulsadores con indicadores LED. Documentamos cómo aplicamos el estaño, cómo corregimos las uniones y qué observamos al probar la placa.</p>
+
+    <section id="soldadura-materiales" class="tema" data-indice="1. Herramientas y materiales">
+        <h3 tabindex="-1">1. Herramientas y materiales</h3>
+        <ul>
+            <li><strong>Cautín:</strong> lo usamos para calentar el pad y el terminal en el punto de unión.</li>
+            <li><strong>Estaño para soldar:</strong> lo aplicamos en pequeñas cantidades para unir los terminales con los pads de cobre.</li>
+            <li><strong>Fundente (flux) en pasta:</strong> la pasta de aspecto graso ayuda a que el estaño fluya y se distribuya sobre el metal.</li>
+            <li><strong>Malla desoldadora:</strong> es una trenza de cobre que absorbe el estaño fundido al calentarla con el cautín. La usamos para retirar excesos y corregir uniones.</li>
+        </ul>
+        <p><a href="https://www.chemtronics.com/how-do-i-desolder-with-solder-wick-desoldering-braid">Referencia sobre el uso de la malla desoldadora</a></p>
+    </section>
+
+    <section id="soldadura-montaje" class="tema" data-indice="2. Montaje de los componentes">
+        <h3 tabindex="-1">2. Montaje de los componentes</h3>
+        <p>Para las resistencias y los LEDs de montaje superficial, preestañamos un pad con una capa muy fina. Volvimos a calentar ese estaño para fijar un extremo del componente, lo alineamos con su huella y soldamos el otro extremo. En los LEDs cuidamos la orientación del ánodo y el cátodo. Aplicamos calor durante periodos breves y usamos solo el estaño necesario para cubrir la unión.</p>
+        <p>En los pulsadores alineamos las patas con sus pads y soldamos cada terminal por separado. En las tiras de pines (pin headers) usamos un poco más de estaño que en los componentes pequeños. Calentamos el pad y el pin juntos y buscamos un filete ligeramente cóncavo, con una transición continua entre ambos y espacio libre entre pines vecinos.</p>
+        <p>Cuando hubo exceso de estaño, colocamos la malla sobre la unión y la calentamos desde arriba. Una vez que absorbió el exceso, retiramos la malla y el cautín juntos para evitar que la trenza quedara adherida al pad.</p>
+    </section>
+
+    <section id="soldadura-resultados" class="tema" data-indice="3. Resultados y prueba">
+        <h3 tabindex="-1">3. Resultados y prueba</h3>
+        <p>Las fotos muestran la placa ensamblada y un acercamiento a las uniones de los pulsadores, las resistencias y los pines. En el video alimentamos la placa con cables de prueba y accionamos los pulsadores. Se observa el encendido de distintos LEDs azules durante la prueba.</p>
+        <figure class="imagen-avance">
+            <a href="soldadura/placa-ensamblada.jpg"><img src="soldadura/placa-ensamblada.jpg" alt="Vista completa de la placa con cuatro pulsadores, resistencias y LEDs montados." loading="lazy"></a>
+            <figcaption>Placa al terminar el montaje.</figcaption>
+        </figure>
+        <figure class="imagen-avance">
+            <a href="soldadura/detalle-uniones.jpg"><img src="soldadura/detalle-uniones.jpg" alt="Acercamiento a las uniones soldadas en los pines, los pulsadores y las resistencias." loading="lazy"></a>
+            <figcaption>Detalle de las uniones de soldadura.</figcaption>
+        </figure>
+        <figure class="imagen-avance">
+            <video controls playsinline preload="none" style="display:block; width:100%; max-width:360px; margin:auto" aria-label="Prueba de los pulsadores y encendido de los LEDs">
+                <source src="soldadura/prueba-leds.mp4" type="video/mp4">
+            </video>
+            <figcaption>Prueba de encendido de los LEDs al accionar los pulsadores. <a href="soldadura/prueba-leds.mp4">Abrir video</a></figcaption>
+        </figure>
+    </section>
+</section>
 </main>
 
         <!-- ÍNDICE DERECHO: SE GENERA SEGÚN LA SECCIÓN -->
@@ -3407,7 +3453,8 @@
             monofab: "Monofab",
             cnc: "CNC",
             multisim: "Multisim",
-            altium: "Altium Designer"
+            altium: "Altium Designer",
+            soldadura: "Soldadura"
             
         };
 
