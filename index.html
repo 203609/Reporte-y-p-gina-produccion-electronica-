@@ -829,6 +829,25 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .componentes-soldadura {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin: 24px 0;
+        }
+
+        .componentes-soldadura img {
+            height: 190px;
+            object-fit: contain;
+            background: white;
+        }
+
+        @media (max-width: 850px) {
+            .componentes-soldadura {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -3493,6 +3512,29 @@
 
     <section id="soldadura-montaje" class="tema" data-indice="2. Montaje de los componentes">
         <h3 tabindex="-1">2. Montaje de los componentes</h3>
+        <div class="componentes-soldadura">
+            <figure class="captura">
+                <!-- LED SMD: Thomas Wydra, dominio público. https://commons.wikimedia.org/wiki/File:Led_smd.jpg -->
+                <a href="https://upload.wikimedia.org/wikipedia/commons/5/5e/Led_smd.jpg" target="_blank" rel="noopener noreferrer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Led_smd.jpg" alt="LED de montaje superficial con encapsulado rectangular y contactos metálicos." width="643" height="628" loading="lazy" decoding="async">
+                </a>
+                <figcaption>LED de montaje superficial (SMD)</figcaption>
+            </figure>
+            <figure class="captura">
+                <!-- Pin header: oomlout, CC BY-SA 2.0. https://commons.wikimedia.org/wiki/File:6_Pin_Header.jpg | https://creativecommons.org/licenses/by-sa/2.0/ | Sin modificaciones. -->
+                <a href="https://upload.wikimedia.org/wikipedia/commons/b/bf/6_Pin_Header.jpg" target="_blank" rel="noopener noreferrer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/6_Pin_Header.jpg" alt="Pin header macho de una fila con seis pines metálicos y una base negra." width="696" height="464" loading="lazy" decoding="async">
+                </a>
+                <figcaption>Pin header (tira de pines)</figcaption>
+            </figure>
+            <figure class="captura">
+                <!-- Pulsador SMD: oomlout, CC BY-SA 2.0. https://commons.wikimedia.org/wiki/File:BUTP-07-X-SMDS-01.jpg | https://creativecommons.org/licenses/by-sa/2.0/ | Versión reducida de Wikimedia. -->
+                <a href="https://upload.wikimedia.org/wikipedia/commons/4/49/BUTP-07-X-SMDS-01.jpg" target="_blank" rel="noopener noreferrer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/BUTP-07-X-SMDS-01.jpg/960px-BUTP-07-X-SMDS-01.jpg" alt="Pulsador táctil de montaje superficial con botón negro y terminales metálicos." width="960" height="640" loading="lazy" decoding="async">
+                </a>
+                <figcaption>Pulsador</figcaption>
+            </figure>
+        </div>
         <p>Para las resistencias y los LEDs de montaje superficial, preestañamos un pad con una capa muy fina. Volvimos a calentar ese estaño para fijar un extremo del componente, lo alineamos con su huella y soldamos el otro extremo. En los LEDs cuidamos la orientación del ánodo y el cátodo. Aplicamos calor durante periodos breves y usamos solo el estaño necesario para cubrir la unión.</p>
         <p>En los pulsadores alineamos las patas con sus pads y soldamos cada terminal por separado. En las tiras de pines (pin headers) usamos un poco más de estaño que en los componentes pequeños. Calentamos el pad y el pin juntos y buscamos un filete ligeramente cóncavo, con una transición continua entre ambos y espacio libre entre pines vecinos.</p>
         <p>Cuando hubo exceso de estaño, colocamos la malla sobre la unión y la calentamos desde arriba. Una vez que absorbió el exceso, retiramos la malla y el cautín juntos para evitar que la trenza quedara adherida al pad.</p>
