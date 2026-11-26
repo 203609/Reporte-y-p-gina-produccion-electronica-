@@ -3548,15 +3548,18 @@
         <p><a href="https://www.altium.com/documentation/altium-designer/pcb/drc" target="_blank" rel="noopener noreferrer">Guía de Altium para interpretar y revisar el DRC</a></p>
     </section>
 
-    <section id="altium-ancho-separacion" class="tema" data-indice="11. Ancho, separación y colores de las pistas">
-        <h3 tabindex="-1">11. Ancho, separación y colores de las pistas</h3>
-        <p>Para interpretar el diseño en Altium distinguimos el ancho de las pistas, el espacio entre ellas y la capa de cobre a la que pertenecen. Estas características permiten revisar cómo se fabricará la placa.</p>
-        <h4>Ancho y separación mínima</h4>
+    <section id="altium-ancho-separacion" class="tema" data-indice="11. Ancho y separación de las pistas">
+        <h3 tabindex="-1">11. Ancho y separación de las pistas</h3>
+        <p>Para revisar la fabricación de la placa en Altium distinguimos dos medidas: el ancho de las pistas y la separación mínima entre ellas.</p>
         <p>El <strong>ancho</strong> es la medida transversal de la pista vista desde arriba. Debe ser adecuado para la corriente, el espesor del cobre y el calentamiento permitido. En la etapa de KiCad de este proyecto documentamos un mínimo de <strong>0.4 mm</strong> y un máximo elegido de <strong>0.8 mm</strong>. Son criterios de ese diseño; al importar la placa, hay que comprobar que las reglas de Altium correspondan a lo requerido.</p>
         <p>La <strong>separación mínima o clearance</strong> es la distancia libre de borde a borde entre conductores de redes distintas. Se aplica a pistas, pads, vías y otras zonas de cobre. Debe cumplir los requisitos eléctricos y los límites del fabricante; en fresado también influye el tamaño de la herramienta y sus tolerancias. En este reporte no se registró una separación numérica confirmada.</p>
         <p>En Altium, las restricciones <strong>Width</strong> y <strong>Clearance</strong> controlan estas medidas. El ancho puede tener valores mínimo, preferido y máximo. Se configuran en el administrador de restricciones o en las reglas de diseño, según la configuración del proyecto. El <strong>DRC</strong> comprueba su cumplimiento: una pista demasiado delgada o demasiado cercana a otra debe revisarse antes de generar las salidas de fabricación.</p>
         <aside class="nota"><strong>Ancho y espesor son diferentes</strong><p>El ancho es la medida visible desde arriba; el espesor es el grosor de la capa de cobre de la placa.</p></aside>
-        <h4>Cómo se ve el diseño y qué significan los colores</h4>
+        </section>
+
+    <section id="altium-colores-capas" class="tema" data-indice="12. Diseño y colores de las capas">
+        <h3 tabindex="-1">12. Diseño y colores de las capas</h3>
+        <p>La vista de la PCB permite reconocer las pistas, los componentes y las distintas capas mediante colores. La siguiente imagen muestra cómo se ve un diseño en Altium.</p>
         <figure class="imagen-avance">
             <!-- Imagen de referencia: tutorial Getting Started with PCB Design de Altium; no corresponde a la placa del equipo. -->
             <a href="https://cdn.resources.altium.com/styles/doc_import/public/doc-import/mlIZH3tt-fWz9O8uDGUTxZvV1duW2as96TIvMNaUIuX3xt-phxAc_5TUqT8PDOLJVBMS9swyje57VxrBIMOkVn6PWhqQVF16_r-t3tIiK_bvMf80VZZeVjuDnuIhWw8mY1krY9GpoC2FWvMGrw.png?itok=ki5SLKEi" target="_blank" rel="noopener noreferrer">
