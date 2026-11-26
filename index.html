@@ -3574,6 +3574,14 @@
         </ul>
         <p>Dos pistas de capas diferentes pueden cruzarse en la vista sin estar conectadas: el material aislante de la placa las separa. La conexión entre capas se realiza mediante vías o pads metalizados que las unan. Los colores son configurables; se comprueba su asignación en <strong>View Configuration → Layers &amp; Colors</strong>.</p>
     </section>
+    <section id="altium-cierre" class="tema" data-indice="13. Cierre del diseño y envío a fabricación">
+        <h3 tabindex="-1">13. Cierre del diseño y envío a fabricación</h3>
+        <p>Con el diseño terminado y las revisiones realizadas, concluimos la etapa de trabajo en Altium Designer. A lo largo del proceso organizamos las conexiones, recuperamos las huellas de los componentes y revisamos la correspondencia entre el esquemático y la PCB. También documentamos las medidas, las capas de cobre y las comprobaciones necesarias para preparar la placa de nuestro teclado QWE / ASD.</p>
+        <p>Las pruebas de generación y revisión de los archivos nos permitieron conocer cómo se representa el diseño fuera del editor. Después de este trabajo, <strong>solo queda realizar la exportación definitiva de la versión que enviaremos a fabricar</strong>. Esta salida debe corresponder al diseño final revisado, para que el fabricante reciba exactamente la placa que queremos producir.</p>
+        <p>El paquete de fabricación reunirá los <strong>archivos Gerber</strong> de las capas necesarias y los <strong>archivos de taladrado NC Drill</strong>. Los Gerber describen las pistas de cobre, la máscara antisoldante, la serigrafía y el contorno; el taladrado indica la ubicación y el tamaño de las perforaciones. En conjunto, estos archivos permiten trasladar el diseño digital a una placa física.</p>
+        <p>Al exportarlos, los reuniremos en una sola carpeta y los comprimiremos en un archivo ZIP, identificado con el nombre del proyecto y su versión. De esta forma, evitamos mezclar archivos de distintas revisiones y facilitamos la entrega al fabricante. El paquete se preparará con los formatos y las especificaciones acordadas para su proceso de producción.</p>
+        <p><strong>Con esta exportación final, los diseños quedarán listos para enviarse a fabricar.</strong> Así cerramos la documentación del diseño en Altium y dejamos preparado el paso de la PCB digital a la placa que utilizaremos para montar los componentes y realizar las pruebas del teclado.</p>
+    </section>
 </section>
 <!-- SECCIÓN SOLDADURA -->
 <section id="soldadura" class="panel" aria-labelledby="titulo-soldadura" hidden>
