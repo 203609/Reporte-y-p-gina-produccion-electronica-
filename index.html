@@ -3481,6 +3481,70 @@
             <figcaption>En este ejemplo de configuración, el informe de Design Rules Check se incluye entre las salidas de validación de la placa.</figcaption>
         </figure>
     </section>
+
+    <section id="altium-salidas" class="tema" data-indice="6. Preparamos las salidas de fabricación">
+        <h3 tabindex="-1">6. Preparamos las salidas de fabricación</h3>
+        <p>Después de verificar la placa, continuamos con los archivos para fabricar nuestro teclado QWE / ASD. Los Gerber describen las formas de las capas y los archivos NC Drill indican la posición y el diámetro de las perforaciones.</p>
+        <p>Para organizar estas salidas, la guía de Altium utiliza un <strong>Output Job File</strong>. Se agrega desde el proyecto con <strong>Add New to Project → Output Job File</strong>. En <strong>Fabrication Outputs</strong> se añaden Gerber y NC Drill, seleccionando la PCB del teclado como origen. Ambos se vinculan a un contenedor <strong>Folder Structure</strong>, donde se define la carpeta de salida. Esta configuración permite repetir la exportación después de una corrección.</p>
+        <figure class="imagen-avance">
+            <a href="https://files.doc.altium.com/sites/default/files/wiki_attachments/323241/Tutorial_OutJob_AddGerber_AD24.webp" target="_blank" rel="noopener noreferrer"><img src="https://files.doc.altium.com/sites/default/files/wiki_attachments/323241/Tutorial_OutJob_AddGerber_AD24.webp" alt="Ejemplo de Altium para agregar la salida Gerber a un Output Job" loading="lazy" decoding="async"></a>
+            <figcaption>Ejemplo de configuración de una salida Gerber en el archivo OutJob.</figcaption>
+        </figure>
+        <p><a href="https://www.altium.com/documentation/altium-designer/tutorial/output-documentation-project-release" target="_blank" rel="noopener noreferrer">Guía de Altium para preparar las salidas de fabricación</a></p>
+    </section>
+
+    <section id="altium-gerber" class="tema" data-indice="7. Generamos los archivos Gerber">
+        <h3 tabindex="-1">7. Generamos los archivos Gerber</h3>
+        <p>Generamos los Gerber de la PCB y revisamos las capas exportadas. Desde el documento de placa, la ruta es <strong>File → Fabrication Outputs → Gerber Files</strong>; también está disponible <strong>Gerber X2 Files</strong>. La elección del formato debe coincidir con lo que acepte el fabricante.</p>
+        <p>Para una placa de dos caras como la nuestra, la selección de salida se revisa de la siguiente manera:</p>
+        <ul>
+            <li><strong>Top Layer y Bottom Layer:</strong> cobre de las dos caras.</li>
+            <li><strong>Top Solder y Bottom Solder:</strong> aperturas de la máscara antisoldante.</li>
+            <li><strong>Top Overlay y Bottom Overlay:</strong> serigrafía de las caras que tengan textos.</li>
+            <li><strong>Board Outline:</strong> contorno cerrado y recortes. En versiones anteriores se utiliza la capa mecánica que contiene el contorno.</li>
+        </ul>
+        <p>Las capas de pasta se añaden cuando se solicita una plantilla para aplicar pasta de soldar. Revisamos unidades, precisión y origen de coordenadas para que el taladrado coincidiera con el cobre. La vista inferior del visor puede mostrar la placa desde abajo; la exportación normalmente se entrega sin aplicar un espejo manual, salvo indicación del fabricante.</p>
+        <p><a href="https://www.altium.com/documentation/altium-designer/preparing-for-manufacture/output-jobs/fabrication-data" target="_blank" rel="noopener noreferrer">Guía de Altium para configurar Gerber y las capas de salida</a></p>
+    </section>
+
+    <section id="altium-taladrado" class="tema" data-indice="8. Exportamos los archivos de taladrado">
+        <h3 tabindex="-1">8. Exportamos los archivos de taladrado</h3>
+        <p>También exportamos el taladrado para los pulsadores, los zócalos del ESP32-S3-Zero y J1. La ruta directa es <strong>File → Fabrication Outputs → NC Drill Files</strong>. En el OutJob se agrega como otra salida de fabricación.</p>
+        <p>La guía muestra un ejemplo en milímetros con formato <strong>4:3</strong> y origen relativo. Estos valores deben ser compatibles con los Gerber y con el fabricante. En nuestra revisión comprobamos la coincidencia de los agujeros con los pads y contrastamos sus diámetros con las huellas del punto 4. Los agujeros metalizados y los no metalizados se distinguen en los archivos cuando corresponda.</p>
+        <figure class="imagen-avance">
+            <a href="https://files.doc.altium.com/sites/default/files/wiki_attachments/323241/Tutorial_OutJob_Dlg_NCDrillSetup_AD24.webp" target="_blank" rel="noopener noreferrer"><img src="https://files.doc.altium.com/sites/default/files/wiki_attachments/323241/Tutorial_OutJob_Dlg_NCDrillSetup_AD24.webp" alt="Ejemplo del cuadro NC Drill Setup con unidades y formato del taladrado" loading="lazy" decoding="async"></a>
+            <figcaption>Ejemplo de la guía para configurar unidades, precisión y origen del taladrado.</figcaption>
+        </figure>
+        <p><a href="https://www.altium.com/documentation/altium-designer/tutorial/output-documentation-project-release" target="_blank" rel="noopener noreferrer">Guía de Altium para configurar NC Drill junto con Gerber</a></p>
+    </section>
+
+    <section id="altium-revision-cam" class="tema" data-indice="9. Revisamos los archivos en CAMtastic">
+        <h3 tabindex="-1">9. Revisamos los archivos en CAMtastic</h3>
+        <p>Con las salidas generadas, revisamos el conjunto exportado. En CAMtastic se crea un documento con <strong>File → New → CAM Document</strong> y se carga la carpeta mediante <strong>File → Import → Quick Load</strong>. Así se pueden superponer Gerber y taladrado para comprobar su alineación.</p>
+        <ol>
+            <li>En <strong>Tables → Layers</strong>, comprobar la función asignada a cada capa.</li>
+            <li>En <strong>Tables → Layers Order</strong>, revisar el orden físico del cobre superior e inferior.</li>
+            <li>Activar las capas por separado y juntas para observar pistas, pads, máscara, textos, contorno y agujeros.</li>
+            <li>Para una comprobación adicional en CAM, extraer las conexiones con <strong>Tools → Netlist → Extract</strong> y ejecutar <strong>Analysis → PCB Design Check/Fix</strong> con los límites de fabricación correspondientes.</li>
+        </ol>
+        <p>Si aparece una diferencia, se corrige en la PCB y se vuelve a generar el conjunto completo. Esto mantiene la exportación y el diseño sincronizados.</p>
+        <p><a href="https://www.altium.com/documentation/altium-designer/preparing-for-manufacture/cam/imported-data-verification" target="_blank" rel="noopener noreferrer">Guía de Altium para verificar los archivos importados en CAMtastic</a></p>
+    </section>
+
+    <section id="altium-validacion-final" class="tema" data-indice="10. Comprobamos el resultado final">
+        <h3 tabindex="-1">10. Comprobamos el resultado final</h3>
+        <p>Terminamos la generación y revisión de los archivos, y el proceso funcionó correctamente. Para evaluar el resultado de nuestro teclado, relacionamos la revisión visual con las conexiones y medidas documentadas en los puntos anteriores:</p>
+        <ul>
+            <li>Las seis señales Q, W, E, A, S y D corresponden a GPIO1, GPIO2, GPIO4, GPIO5, GPIO6 y GPIO7, respectivamente.</li>
+            <li>Cada pulsador conecta su entrada con GND al presionarlo; se revisan especialmente los pares de terminales de su huella.</li>
+            <li>U1 conserva sus 18 pads y J1 sus siete conexiones. La orientación del módulo y el acceso al USB deben coincidir con el montaje.</li>
+            <li>El contorno debe estar cerrado y los agujeros centrados en los pads, con las medidas revisadas en el punto 4.</li>
+            <li>La máscara deja accesibles las superficies de soldadura y la serigrafía permite identificar los componentes.</li>
+        </ul>
+        <p>El DRC del punto 5 se interpreta junto con estas comprobaciones. Un informe con cero infracciones significa que la placa cumple las reglas activadas y sus límites configurados. Antes de generar una versión final se repite la revisión completa, especialmente si hubo cambios en pistas, huellas o polígonos.</p>
+        <p>Para entregar los archivos, se reúne en un ZIP una sola versión de Gerber y taladrado, con una identificación clara de la placa y su revisión. La comprobación de fabricación se complementa con la prueba eléctrica y de funcionamiento de la placa ensamblada.</p>
+        <p><a href="https://www.altium.com/documentation/altium-designer/pcb/drc" target="_blank" rel="noopener noreferrer">Guía de Altium para interpretar y revisar el DRC</a></p>
+    </section>
 </section>
 <!-- SECCIÓN SOLDADURA -->
 <section id="soldadura" class="panel" aria-labelledby="titulo-soldadura" hidden>
