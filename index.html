@@ -557,9 +557,17 @@
         }
         #integrantes .perfiles-equipo {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 24px;
             margin-top: 30px;
+        }
+
+        #integrantes .perfiles-equipo > .perfil {
+            grid-column: span 2;
+        }
+
+        #integrantes .perfiles-equipo > .perfil:last-child:nth-child(odd) {
+            grid-column: 2 / span 2;
         }
 
         #integrantes .perfil {
@@ -612,9 +620,14 @@
 
         @media (max-width: 650px) {
             #integrantes .perfiles-equipo {
-                    grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            #integrantes .perfiles-equipo > .perfil,
+            #integrantes .perfiles-equipo > .perfil:last-child:nth-child(odd) {
+                grid-column: auto;
+            }
         }
-    }
     /* APARTADO MODS */
         #mods .mods-introduccion {
             margin: 24px 0;
